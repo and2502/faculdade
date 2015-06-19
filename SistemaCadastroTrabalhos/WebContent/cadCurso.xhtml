@@ -14,16 +14,14 @@
 		<p:growl id="growl" showDetail="true" />
 			<h:form>
 			    <p:panel header="Cadastro de Curso">
-			        <p:messages autoUpdate="true"/>
-			 
 			        <h:panelGrid id="grid" columns="4" cellpadding="5">
 			            <h:outputLabel for="nome" value="Nome:" style="font-weight:bold"/>                    
-			            <p:inputText id="nome" value="#{cursoBean.curso.nome}" required="true" label="Nome"/>
+			            <p:inputText id="nome" value="#{cursoBean.curso.nome}" required="true" label="Nome" size="40" requiredMessage="Campo obritário"/>
 			            <p:message for="nome" />
 			           
 			        </h:panelGrid>
 			 
-			        <p:commandButton value="Salvar" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
+			        <p:commandButton value="Salvar" update="grid" action="#{cursoBean.insert}" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
 			    </p:panel>
 			</h:form>
 	</ui:define>

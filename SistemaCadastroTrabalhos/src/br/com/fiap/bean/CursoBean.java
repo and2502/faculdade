@@ -3,7 +3,10 @@ package br.com.fiap.bean;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
+import javax.persistence.EntityManager;
 
+import br.com.fiap.bo.CursoBO;
+import br.com.fiap.config.JPAUtil;
 import br.com.fiap.entity.Curso;
 
 @ManagedBean(name="cursoBean")
@@ -21,5 +24,17 @@ public class CursoBean implements Serializable {
 
 	public void setCurso(Curso curso) {
 		this.curso = curso;
+	}
+	
+	public void insert(){
+	  EntityManager em = JPAUtil.getEntityManager();
+	  try{
+	      new CursoBO(em).saveCurso(this.curso);
+	  }catch(Exception ex){
+	      ex.printStackTrace();
+	  }finally{
+	      em.close();
+	  }
+	  
 	}
 }

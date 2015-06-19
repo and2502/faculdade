@@ -12,9 +12,22 @@
 
 	<ui:define name="conteudo">
 		<p:growl id="growl" showDetail="true" />
-			<div align="center">
-				<h3>Seja bem vindo ao Sistema - Navegue pelo menu acima.</h3>
-			</div>
+			<h:form>
+			    <p:panel header="Cadastro de Aluno">
+			        <h:panelGrid id="grid" columns="3" cellpadding="5">
+			            <h:outputLabel for="nome" value="Nome:" style="font-weight:bold"/>                    
+			            <p:inputText id="nome" value="#{alunoBean.aluno.nome}" required="true" label="Nome" size="40" requiredMessage="Campo obritário"/>
+			            <p:message for="nome" />
+			            
+			            <h:outputLabel for="RM" value="RM:" style="font-weight:bold"/>                    
+			            <p:inputText id="rm" value="#{alunoBean.aluno.rm}" required="true" label="RM" size="10" maxlength="8" requiredMessage="Campo obritário"/>
+			            <p:message for="rm" />
+			           
+			        </h:panelGrid>
+			 
+			        <p:commandButton value="Salvar" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
+			    </p:panel>
+			</h:form>
 	</ui:define>
 </ui:composition>
 </html>
