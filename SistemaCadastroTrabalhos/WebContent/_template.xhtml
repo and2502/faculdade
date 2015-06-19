@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+
+	<h:head>
+		<title>Sistema de Cadastro de Trabalhos</title>
+		<meta http-equiv="Pragma" content="no-cache" />
+	</h:head>
+
+	<h:body>
+
+		<div id="main_container" style="width: 70%; margin-left: 15%">
+			<div id="header" >
+				<ui:insert name="cabecalho">
+					<div style="background-image: url('/SistemaCadastroTrabalhos/resources/img/sistema.png');background-repeat: no-repeat;height: 50px; margin-left: 36%">
+					</div>
+					<h:form>
+						<p:growl id="messages" />
+						<p:menubar>
+							<p:submenu label="Cadastros">
+								<p:menuitem value="Curso" url="cadCurso.xhtml" />
+								<p:menuitem value="Aluno" url="#" />
+								<p:menuitem value="Disciplina" url="#" />
+							</p:submenu>
+
+							<p:submenu label="Consultas">
+								<p:menuitem value="Listagem de Cursos" url="#" />
+								<p:menuitem value="Dados do Aluno" url="#" />
+							</p:submenu>
+						</p:menubar>
+					</h:form>
+				</ui:insert>
+			</div>
+
+			<div id="main_content" style="padding: 40px">
+				<ui:insert name="conteudo">
+					<div id="right_content">Conteúdo Padrão!</div>
+					<div style="clear: both;"></div>
+				</ui:insert>
+			</div>
+
+			<!--RODAPE-->
+			<div id="footer">
+				<ui:insert name="rodape">
+					<div class="ui-menu ui-menubar ui-widget ui-widget-content ui-corner-all ui-helper-clearfix" style="text-align: center">Sistema de Cadastro de Trabalhos</div>
+				</ui:insert>
+			</div>
+
+		</div>
+		<!--fim main container-->
+
+	</h:body>
+
+</f:view>
+
+</html>
