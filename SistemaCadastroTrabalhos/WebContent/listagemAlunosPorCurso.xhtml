@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/_template.xhtml">
+
+
+	<ui:define name="conteudo">
+		<p:growl id="growl" showDetail="true" />
+			<h:form>
+			    <p:panel header="Listagem de Alunos por Curso">
+			    
+			        <h:panelGrid id="grid" columns="2" cellpadding="5">
+			        	<p:outputLabel for="cursos" value="Cursos: " />
+				        <p:selectOneMenu id="cursos" value="#{selectOneMenuView.car}">
+				            <f:selectItem itemLabel="Selecione um curso" itemValue="" />
+				            <f:selectItems value="#{cursoBean.findAllCursos}" />
+				        </p:selectOneMenu>
+			           
+			           <p:outputLabel for="listaAlunos" value="Lista de Alunos por Curso " />
+			           <p:dataTable id="listaAlunos" var="car" value="#{dtBasicView.cars}">
+						    <p:column headerText="Id">
+						        <h:outputText value="#{car.id}" />
+						    </p:column>
+						 
+						    <p:column headerText="Year">
+						        <h:outputText value="#{car.year}" />
+						    </p:column>
+						 
+						    <p:column headerText="Brand">
+						        <h:outputText value="#{car.brand}" />
+						    </p:column>
+						 
+						    <p:column headerText="Color">
+						        <h:outputText value="#{car.color}" />
+						    </p:column>
+						</p:dataTable>
+			           
+			        </h:panelGrid>
+			    </p:panel>
+			</h:form>
+	</ui:define>
+</ui:composition>
+</html>

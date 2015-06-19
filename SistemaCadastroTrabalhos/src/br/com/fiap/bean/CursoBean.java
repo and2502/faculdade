@@ -35,6 +35,14 @@ public class CursoBean implements Serializable {
 	  }finally{
 	      em.close();
 	  }
-	  
 	}
+	
+
+    public void findAllCursos(){
+      // TODO IMPLEMENTAR A LISTAGEM DE CURSOS
+    }
+    
+    public void findAllAlunosByCurso(){
+      // TODO IMPLEMENTAR A LISTAGEM DE ALUNOS POR CURSO SELECIONADO
+    }
 }
