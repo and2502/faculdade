@@ -10,9 +10,16 @@
 8 - Associe o projeto SistemaCadastroTrabalhos ao seu server criado no eclipse.<br/>
 9 - Realize o start do server.<br/>
 
-10 - URL de acesso:<br/>
+11- Criar schema  chamado <b>sistemaCadTrabalhos</b> no Mysql<br/>
+12- Usuario/senha do banco:<br/>
+usuario: root<br/>
+senha: root<br/>
+
+13 - URL de acesso:<br/>
 <a href="http://localhost:8080/SistemaCadastroTrabalhos/faces/index.xhtml">http://localhost:8080/SistemaCadastroTrabalhos/faces/index.xhtml</a><br/><br/>
 
+
+OBS: Ao realizar o primeiro cadastro no sistema, o banco será gerado automaticamente.<br/>
 
 Comandos auxiliares para subir suas alterações:<br/>
 <code>git add .</code><br/>
