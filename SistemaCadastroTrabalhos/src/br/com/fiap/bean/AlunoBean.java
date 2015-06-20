@@ -1,6 +1,7 @@
 package br.com.fiap.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -19,6 +20,7 @@ import br.com.fiap.entity.Aluno;
 public class AlunoBean implements Serializable{
 
 	private Aluno aluno;
+	private List<Aluno> listaAlunos;
 
 	@PostConstruct
 	public void inicializarObjetos() {
@@ -33,7 +35,7 @@ public class AlunoBean implements Serializable{
 			CursoBO cursoBO = new CursoBO(em);
 			AlunoBO alunoBO = new AlunoBO(em);
 			if(cursoBO.verifyHasCursos()){
-				alunoBO.saveCurso(this.aluno);
+				alunoBO.saveAluno(this.aluno);
 				msg = new FacesMessage("Aviso:", "Aluno inserido com sucesso!");
 				novoAluno();
 			}else{
@@ -47,6 +49,17 @@ public class AlunoBean implements Serializable{
 		}
 		fc.addMessage("", msg);
 	}
+	
+	public void findAllAlunos() {
+		EntityManager em = JPAUtil.getEntityManager();
+		try {
+			this.listaAlunos = new AlunoBO(em).findAllAlunos();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
 
 	private void novoAluno() {
 		this.aluno = new Aluno();
@@ -59,5 +72,16 @@ public class AlunoBean implements Serializable{
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+
+	public List<Aluno> getListaAlunos() {
+		if(this.listaAlunos == null){
+			findAllAlunos();
+		}
+		return listaAlunos;
+	}
+
+	public void setListaAlunos(List<Aluno> listaAlunos) {
+		this.listaAlunos = listaAlunos;
 	}
 }

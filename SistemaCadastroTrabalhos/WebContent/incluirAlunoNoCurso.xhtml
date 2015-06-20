@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/_template.xhtml">
+
+
+	<ui:define name="conteudo">
+			<h:form>
+			    <p:panel header="Incluir Aluno no Curso">
+					<p:growl id="growl" showDetail="true" />
+			        <h:panelGrid id="grid" columns="3" cellpadding="5">
+		            
+		            	<h:outputLabel for="aluno" value="Selecione o Aluno:" style="font-weight:bold"/>
+				        <p:selectOneMenu id="aluno" value="#{incluirAlunoNoCursoBean.aluno.id}" required="true" requiredMessage="Campo obrigatório">
+				            <f:selectItem itemLabel="Selecione um Aluno" itemValue="" />
+				            <f:selectItems value="#{alunoBean.listaAlunos}" var="aluno" itemLabel="#{aluno.nome}" itemValue="#{aluno.id}" />
+				        </p:selectOneMenu>
+				        <p:message for="aluno" />
+		            
+			            <h:outputLabel for="curso" value="Selecione o Curso:" style="font-weight:bold"/>
+				        <p:selectOneMenu id="curso" value="#{incluirAlunoNoCursoBean.curso.id}" required="true" requiredMessage="Campo obrigatório">
+				            <f:selectItem itemLabel="Selecione um curso" itemValue="" />
+				            <f:selectItems value="#{cursoBean.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.id}" />
+				        </p:selectOneMenu>
+				        <p:message for="curso" />
+			           
+			        </h:panelGrid>
+			 
+			        <p:commandButton value="Incluir" update="grid growl" action="#{incluirAlunoNoCursoBean.incluirAlunoNoCurso}" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
+			    </p:panel>
+			</h:form>
+	</ui:define>
+</ui:composition>
+</html>

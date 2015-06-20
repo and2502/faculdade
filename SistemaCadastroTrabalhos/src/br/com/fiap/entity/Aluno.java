@@ -3,6 +3,7 @@ package br.com.fiap.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Aluno implements Serializable {
 	@Column(name = "RM")
 	private String rm;
 	
-	@ManyToMany(mappedBy="alunos")
+	@ManyToMany(mappedBy="alunos", cascade=CascadeType.ALL)
 	private List<Curso> cursos;
 	
 	public Long getId() {

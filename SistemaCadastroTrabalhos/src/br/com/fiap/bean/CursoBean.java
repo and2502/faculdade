@@ -55,7 +55,7 @@ public class CursoBean implements Serializable {
 		}
 		fc.addMessage("", msg);
 	}
-
+	
 	private void novoCurso() {
 		this.curso = new Curso();
 	}
