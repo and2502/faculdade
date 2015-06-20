@@ -1,4 +1,4 @@
-Informações para instalação em ambiente de desenvolvimento:
+<h4>Informações para instalação em ambiente de desenvolvimento:</h4>
 
 1 - Importe no eclipse o como tipo <b>Existing Eclipse projects</b><br/>
 2 - Faça download do tomcat 7 no link abaixo:<br/>
