@@ -11,9 +11,9 @@
 
 
 	<ui:define name="conteudo">
-		<p:growl id="growl" showDetail="true" />
 			<h:form>
 			    <p:panel header="Cadastro de Disciplina">
+					<p:growl id="growl" showDetail="true" />
 			        <h:panelGrid id="grid" columns="3" cellpadding="5">
 			            <h:outputLabel for="nome" value="Nome:" style="font-weight:bold"/>                    
 			            <p:inputText id="nome" value="#{disciplinaBean.disciplina.nome}" required="true" label="Nome" size="40"
@@ -24,10 +24,17 @@
 			            <p:inputText id="cargaHoraria" value="#{disciplinaBean.disciplina.cargaHoraria}" required="true" 
 			            	label="Carga Horária" size="3" maxlength="3" requiredMessage="Campo obrigatório"/>
 			            <p:message for="cargaHoraria" />
+			            
+			            <h:outputLabel for="curso" value="Curso:" style="font-weight:bold"/>
+				        <p:selectOneMenu id="curso" value="#{disciplinaBean.disciplina.curso.id}" required="true" requiredMessage="Campo obrigatório">
+				            <f:selectItem itemLabel="Selecione um curso" itemValue="" />
+				            <f:selectItems value="#{cursoBean.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.id}" />
+				        </p:selectOneMenu>
+				        <p:message for="curso" />
 			           
 			        </h:panelGrid>
 			 
-			        <p:commandButton value="Salvar" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
+			        <p:commandButton value="Salvar" update="grid growl" action="#{disciplinaBean.insert}" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
 			    </p:panel>
 			</h:form>
 	</ui:define>

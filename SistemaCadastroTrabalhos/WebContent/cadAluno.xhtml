@@ -11,9 +11,9 @@
 
 
 	<ui:define name="conteudo">
-		<p:growl id="growl" showDetail="true" />
 			<h:form>
 			    <p:panel header="Cadastro de Aluno">
+						<p:growl id="growl" showDetail="true" />
 			        <h:panelGrid id="grid" columns="3" cellpadding="5">
 			            <h:outputLabel for="nome" value="Nome:" style="font-weight:bold"/>                    
 			            <p:inputText id="nome" value="#{alunoBean.aluno.nome}" required="true" label="Nome" size="40" requiredMessage="Campo obritário"/>
@@ -25,7 +25,7 @@
 			           
 			        </h:panelGrid>
 			 
-			        <p:commandButton value="Salvar" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
+			        <p:commandButton value="Salvar" update="grid growl" icon="ui-icon-check" action="#{alunoBean.insert}" validateClient="true" style="margin-right:10px"/>
 			    </p:panel>
 			</h:form>
 	</ui:define>

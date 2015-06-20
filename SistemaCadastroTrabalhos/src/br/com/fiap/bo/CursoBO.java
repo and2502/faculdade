@@ -25,6 +25,10 @@ public class CursoBO{
 		disciplinaDAO = new DisciplinaDAOImpl(em);
 		notaDAO = new NotaDAOImpl(em);
 	}
+	
+	public Curso findCursoById(Long id){
+		return cursoDAO.searchByID(id);
+	}
 
 	public void saveCurso(Curso curso){
 		cursoDAO.insert(curso);
@@ -40,5 +44,9 @@ public class CursoBO{
 	
 	public List<Curso> findAllCursos(){
 		return cursoDAO.findAllCursos();
+	}
+	
+	public boolean verifyHasCursos(){
+		return cursoDAO.verifyHasCursos();
 	}
 }

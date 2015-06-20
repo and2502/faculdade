@@ -21,4 +21,15 @@ public class CursoDAOImpl extends DAOImpl<Curso, Long> implements CursoDAO{
 		return query.getResultList();
 	}
 
+	@Override
+	public boolean verifyHasCursos() {
+		TypedQuery<Long> query = em.createQuery("SELECT count(id) as qtde FROM Curso", Long.class);
+		Long qtde = query.getSingleResult();
+		if(qtde > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 }

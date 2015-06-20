@@ -8,4 +8,6 @@ import br.com.fiap.entity.Curso;
 public interface CursoDAO extends DAO<Curso, Long>{
 
 	List<Curso> findAllCursos();
+	
+	boolean verifyHasCursos();
 }

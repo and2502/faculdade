@@ -44,16 +44,20 @@ public class CursoBean implements Serializable {
 		EntityManager em = JPAUtil.getEntityManager();
 		try {
 			new CursoBO(em).saveCurso(this.curso);
-			msg = new FacesMessage("Curso inserido com sucesso!");
-			this.curso = new Curso();
+			msg = new FacesMessage("Aviso:", "Curso inserido com sucesso!");
+			novoCurso();
 		} catch (Exception ex) {
-			msg = new FacesMessage(
+			msg = new FacesMessage("Aviso:",
 					"Ocorreu uma falha ao tentar inserir o curso!");
 			ex.printStackTrace();
 		} finally {
 			em.close();
 		}
 		fc.addMessage("", msg);
+	}
+
+	private void novoCurso() {
+		this.curso = new Curso();
 	}
 
 	public void findAllCursos() {
