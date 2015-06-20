@@ -17,31 +17,60 @@
 			    
 			        <h:panelGrid id="grid" columns="2" cellpadding="5">
 			        	<p:outputLabel for="cursos" value="Cursos: " />
-				        <p:selectOneMenu id="cursos" value="#{cursoBean.curso}">
+				        <p:selectOneMenu id="cursos" value="#{alunoBean.idCurso}">
 				            <f:selectItem itemLabel="Selecione um curso" itemValue="" />
-				            <f:selectItems value="#{cursoBean.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso}" />
+				            <f:selectItems value="#{cursoBean.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.id}" />
+				            	<p:ajax update="tabAlunos" listener="#{alunoBean.findAllAlunosByCurso}" />
+				       			<p:ajax update="gridIncluirNotaDisciplina" listener="#{alunoBean.findDisciplinasByCurso}" />
 				        </p:selectOneMenu>
-			           
-<!-- 			           <p:outputLabel for="listaAlunos" value="Lista de Alunos por Curso " /> -->
-<!-- 			           <p:dataTable id="listaAlunos" var="car" value="#{dtBasicView.cars}"> -->
-<!-- 						    <p:column headerText="Id"> -->
-<!-- 						        <h:outputText value="#{car.id}" /> -->
-<!-- 						    </p:column> -->
-						 
-<!-- 						    <p:column headerText="Year"> -->
-<!-- 						        <h:outputText value="#{car.year}" /> -->
-<!-- 						    </p:column> -->
-						 
-<!-- 						    <p:column headerText="Brand"> -->
-<!-- 						        <h:outputText value="#{car.brand}" /> -->
-<!-- 						    </p:column> -->
-						 
-<!-- 						    <p:column headerText="Color"> -->
-<!-- 						        <h:outputText value="#{car.color}" /> -->
-<!-- 						    </p:column> -->
-<!-- 						</p:dataTable> -->
-			           
-			        </h:panelGrid>
+			        </h:panelGrid>   
+			        
+					<p:panel header="Lista de Alunos cadastrados no curso">
+						<p:dataTable id="tabAlunos" value="#{alunoBean.listaAlunosByCurso}" var="a">
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="ID" />
+								</f:facet>
+								<p:outputLabel value="#{a.id}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOME" />
+								</f:facet>
+								<p:outputLabel value="#{a.nome}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="RM" />
+								</f:facet>
+								<p:outputLabel value="#{a.rm}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="Ações" />
+								</f:facet>
+								<p:commandButton value="Incluir nota" type="button" onclick="PF('dlgNotas').show();">
+									<f:param name="id" value="#{alunoBean.idAluno}" />
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+					</p:panel>
+					
+					 <!-- Dialog de inclusão de notas -->
+				    <p:dialog header="Incluir Nota" widgetVar="dlgNotas" minHeight="40">
+					    <h:panelGrid id="gridIncluirNotaDisciplina" columns="2" cellpadding="5">
+				        	<p:outputLabel for="disciplinas" value="Discplinas:" />
+					        <p:selectOneMenu id="disciplinas" value="#{alunoBean.idDisciplina}" required="true" requiredMessage="Campo obrigatorio">
+					            <f:selectItem itemLabel="Selecione a disciplina" itemValue="" />
+					            <f:selectItems value="#{alunoBean.listaDisciplinaByCurso}" var="disciplina" itemLabel="#{disciplina.nome}" itemValue="#{disciplina.id}" />
+					        </p:selectOneMenu>
+					        
+					        <p:outputLabel for="fieldNota" value="Nota:" />
+					        <p:inputText id="fieldNota" value="#{alunoBean.nota.valor}" label="Nota" size="2" maxlength="2"/>
+				        	<p:commandButton value="Salvar Nota" icon="ui-icon-check" update="growl gridIncluirNotaDisciplina" action="#{alunoBean.insertNotaAluno}"/>
+				        </h:panelGrid>  
+					</p:dialog>
+			        
 			    </p:panel>
 			</h:form>
 	</ui:define>

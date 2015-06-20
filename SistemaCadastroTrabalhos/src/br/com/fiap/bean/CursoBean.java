@@ -71,10 +71,6 @@ public class CursoBean implements Serializable {
 		}
 	}
 
-	public void findAllAlunosByCurso() {
-		// TODO IMPLEMENTAR A LISTAGEM DE ALUNOS POR CURSO SELECIONADO
-	}
-
 	public List<Curso> getListaCursos() {
 		if(this.listaCursos == null){
 			findAllCursos();

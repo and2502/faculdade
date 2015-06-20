@@ -49,4 +49,12 @@ public class CursoBO{
 	public boolean verifyHasCursos(){
 		return cursoDAO.verifyHasCursos();
 	}
+
+	public List<Disciplina> findDisciplinasByCurso(Long idCurso) {
+		return disciplinaDAO.findDisciplinasByCurso(idCurso);
+	}
+
+	public Disciplina findDisciplinaById(Long idDisciplina) {
+		return disciplinaDAO.searchByID(idDisciplina);
+	}
 }

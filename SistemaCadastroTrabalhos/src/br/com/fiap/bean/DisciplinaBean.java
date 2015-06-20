@@ -24,24 +24,29 @@ public class DisciplinaBean implements Serializable {
 	public void inicializarObjetos() {
 		novaDisciplina();
 	}
-	
+
 	public void insert() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		FacesMessage msg = null;
 		EntityManager em = JPAUtil.getEntityManager();
 		try {
 			CursoBO cursoBO = new CursoBO(em);
-			if(cursoBO.verifyHasCursos()){
-				Curso curso = cursoBO.findCursoById(this.disciplina.getCurso().getId());
+			if (cursoBO.verifyHasCursos()) {
+				Curso curso = cursoBO.findCursoById(this.disciplina.getCurso()
+						.getId());
 				this.disciplina.setCurso(curso);
 				cursoBO.saveDisciplina(this.disciplina);
-				msg = new FacesMessage("Aviso:", "Disciplina inserido com sucesso!");
+				msg = new FacesMessage("Aviso:",
+						"Disciplina inserido com sucesso!");
 				novaDisciplina();
-			}else{
-				msg = new FacesMessage("Aviso:", "Não existe nenhum curso cadastro! Portanto, não conseguirá concluir este cadastro.");
+			} else {
+				msg = new FacesMessage(
+						"Aviso:",
+						"Não existe nenhum curso cadastro! Portanto, não conseguirá concluir este cadastro.");
 			}
 		} catch (Exception ex) {
-			msg = new FacesMessage("Aviso:","Ocorreu uma falha ao tentar inserir a Disciplina!");
+			msg = new FacesMessage("Aviso:",
+					"Ocorreu uma falha ao tentar inserir a Disciplina!");
 			ex.printStackTrace();
 		} finally {
 			em.close();

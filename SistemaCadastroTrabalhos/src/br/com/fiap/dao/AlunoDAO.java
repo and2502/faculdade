@@ -9,4 +9,6 @@ public interface AlunoDAO extends DAO<Aluno, Long>{
 
 	List<Aluno> findAllAlunos();
 
+	List<Aluno> findAllAlunosByCurso(Long idCurso);
+
 }

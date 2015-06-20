@@ -41,4 +41,8 @@ public class AlunoBO {
 		return alunoDAO.findAllAlunos();
 	}
 
+	public List<Aluno> findAllAlunosByCurso(Long idCurso) {
+		return alunoDAO.findAllAlunosByCurso(idCurso);
+	}
+
 }

@@ -20,4 +20,11 @@ public class AlunoDAOImpl extends DAOImpl<Aluno, Long> implements AlunoDAO{
 		TypedQuery<Aluno> query = em.createQuery("from Aluno", Aluno.class);
 		return query.getResultList();
 	}
+
+	@Override
+	public List<Aluno> findAllAlunosByCurso(Long idCurso) {
+		TypedQuery<Aluno> query = em.createQuery("select a from Aluno a, CursoAluno ca where ca.aluno.id = a.id and ca.curso.id = :paramIdCurso", Aluno.class);
+		query.setParameter("paramIdCurso", idCurso);
+		return query.getResultList();
+	}
 }
