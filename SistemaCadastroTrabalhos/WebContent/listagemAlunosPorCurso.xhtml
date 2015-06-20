@@ -17,29 +17,29 @@
 			    
 			        <h:panelGrid id="grid" columns="2" cellpadding="5">
 			        	<p:outputLabel for="cursos" value="Cursos: " />
-				        <p:selectOneMenu id="cursos" value="#{selectOneMenuView.car}">
+				        <p:selectOneMenu id="cursos" value="#{cursoBean.curso}">
 				            <f:selectItem itemLabel="Selecione um curso" itemValue="" />
-				            <f:selectItems value="#{cursoBean.findAllCursos}" />
+				            <f:selectItems value="#{cursoBean.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso}" />
 				        </p:selectOneMenu>
 			           
-			           <p:outputLabel for="listaAlunos" value="Lista de Alunos por Curso " />
-			           <p:dataTable id="listaAlunos" var="car" value="#{dtBasicView.cars}">
-						    <p:column headerText="Id">
-						        <h:outputText value="#{car.id}" />
-						    </p:column>
+<!-- 			           <p:outputLabel for="listaAlunos" value="Lista de Alunos por Curso " /> -->
+<!-- 			           <p:dataTable id="listaAlunos" var="car" value="#{dtBasicView.cars}"> -->
+<!-- 						    <p:column headerText="Id"> -->
+<!-- 						        <h:outputText value="#{car.id}" /> -->
+<!-- 						    </p:column> -->
 						 
-						    <p:column headerText="Year">
-						        <h:outputText value="#{car.year}" />
-						    </p:column>
+<!-- 						    <p:column headerText="Year"> -->
+<!-- 						        <h:outputText value="#{car.year}" /> -->
+<!-- 						    </p:column> -->
 						 
-						    <p:column headerText="Brand">
-						        <h:outputText value="#{car.brand}" />
-						    </p:column>
+<!-- 						    <p:column headerText="Brand"> -->
+<!-- 						        <h:outputText value="#{car.brand}" /> -->
+<!-- 						    </p:column> -->
 						 
-						    <p:column headerText="Color">
-						        <h:outputText value="#{car.color}" />
-						    </p:column>
-						</p:dataTable>
+<!-- 						    <p:column headerText="Color"> -->
+<!-- 						        <h:outputText value="#{car.color}" /> -->
+<!-- 						    </p:column> -->
+<!-- 						</p:dataTable> -->
 			           
 			        </h:panelGrid>
 			    </p:panel>
