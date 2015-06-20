@@ -1,12 +1,14 @@
 package br.com.fiap.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,9 @@ public class Aluno implements Serializable {
 	
 	@Column(name = "RM")
 	private String rm;
+	
+	@ManyToMany(mappedBy="alunos")
+	private List<Curso> cursos;
 	
 	public Long getId() {
 		return id;
@@ -48,4 +53,13 @@ public class Aluno implements Serializable {
 		this.rm = rm;
 	}
 
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
+	}
+
+	
 }
