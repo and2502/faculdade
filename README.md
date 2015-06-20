@@ -10,7 +10,7 @@
 8 - Associe o projeto SistemaCadastroTrabalhos ao seu server criado no eclipse.<br/>
 9 - Realize o start do server.<br/>
 
-11- Criar schema  chamado <b>sistemaCadTrabalhos</b> no Mysql<br/>
+11- Importe o dump do banco que está localizado em /resources/dump.sql no Mysql<br/>
 12- Usuario/senha do banco configurado na aplicação:<br/>
 usuario: root<br/>
 senha: root<br/>
