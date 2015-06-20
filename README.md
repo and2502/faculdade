@@ -11,7 +11,7 @@
 9 - Realize o start do server.<br/>
 
 11- Criar schema  chamado <b>sistemaCadTrabalhos</b> no Mysql<br/>
-12- Usuario/senha do banco:<br/>
+12- Usuario/senha do banco configurado na aplicação:<br/>
 usuario: root<br/>
 senha: root<br/>
 
