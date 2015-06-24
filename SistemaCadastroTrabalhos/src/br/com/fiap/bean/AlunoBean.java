@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 
@@ -18,10 +18,11 @@ import br.com.fiap.entity.Aluno;
 import br.com.fiap.entity.Disciplina;
 import br.com.fiap.entity.Nota;
 
-@ManagedBean
-@RequestScoped
+@ManagedBean(name = "alunoBean")
+@ViewScoped
 public class AlunoBean implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private Aluno aluno;
 	private List<Aluno> listaAlunos;
 	private List<Aluno> listaAlunosByCurso;
@@ -79,6 +80,15 @@ public class AlunoBean implements Serializable{
 		}
 		fc.addMessage("", msg);
 	}
+	
+	/**
+	 * método tem a finalidade de receber o id do Aluno pela requisição da view e valorizar uma variavel do tipo Long
+	 * 	
+	 * @param idAlun - variavel do tipo Long, representa id do usuário seleciona em requisição da View
+	 */
+	public void preencherCodigoAluno(Long idAlun){
+		idAluno = idAlun;
+	}	
 	
 	public void findAllAlunosByCurso() {
 		EntityManager em = JPAUtil.getEntityManager();
