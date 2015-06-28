@@ -79,6 +79,8 @@ public class AlunoBean implements Serializable{
 			em.close();
 		}
 		fc.addMessage("", msg);
+		
+		nota = new Nota();		
 	}
 	
 	/**
