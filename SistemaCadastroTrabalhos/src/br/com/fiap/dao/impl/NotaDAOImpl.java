@@ -1,5 +1,6 @@
 package br.com.fiap.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.persistence.Query;
 import br.com.fiap.config.DAOImpl;
 import br.com.fiap.dao.NotaDAO;
 import br.com.fiap.entity.Aluno;
+import br.com.fiap.entity.Curso;
 import br.com.fiap.entity.Disciplina;
 import br.com.fiap.entity.Nota;
 
@@ -26,30 +28,33 @@ public class NotaDAOImpl extends DAOImpl<Nota, Long> implements NotaDAO{
 				+                           "group by a.RM, nAluno, nCurso, dDisciplina, n.VALOR");		
 		
 		List<Object[]> objs = query.getResultList();
-		
-		Disciplina dis = new Disciplina();
-		Aluno alu = new Aluno();
-		int count = 0;
+		List<Nota> notas = new ArrayList<Nota>();
+				
 		for (Object[] objects : objs) {
 			
-			alu.setId((Long) objects[count]);
-			alu.setRm((String) objects[count]);
-			alu.setNome((String) objects[count]);
+			Disciplina dis = new Disciplina();
+			Aluno alu = new Aluno();
+			Curso cur = new Curso();
+			Nota not = new Nota();			
+			alu.setId(Long.valueOf(objects[0].toString()));
+			alu.setRm((String) objects[1]);
+			alu.setNome((String) objects[2]);
+						
+			cur.setId(Long.valueOf(objects[3].toString()));
+			cur.setNome((String) objects[4]);
+						
+			dis.setId(Long.valueOf(objects[5].toString()));
+			dis.setNome((String) objects[6]);
+			dis.setCurso(cur);
 			
+			not.setValor((Double) objects[7]);
+			not.setAluno(alu);
+			not.setDisciplina(dis);
 			
-			
-			++count;
+			notas.add(not);					
 		}
-		
-		/*for (int i = 0; i < objs.size(); i++) {
-			
-			alu.setId((Long) objs.get(i)[i]);
-			alu.setRm((String) objs.get(i)[i]);
-			alu.setNome((String) objs.get(i)[i]);
-			
-		}*/
-		
-		return query.getResultList();
+				
+		return notas;
 	}
 	
 

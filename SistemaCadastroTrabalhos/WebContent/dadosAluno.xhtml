@@ -12,30 +12,43 @@
 
 	<ui:define name="conteudo">
 			<h:form>
-			    <p:panel header="Dados do aluno">
-					<p:growl id="growl" showDetail="true" />
-			        <h:panelGrid id="grid" columns="3" cellpadding="5">
+			    	<p:growl id="growl" showDetail="true" />			        
 		            	
-		            	<p:da
-		            	
-		            	<h:outputLabel for="aluno" value="Selecione o Aluno:" style="font-weight:bold"/>
-				        <p:selectOneMenu id="aluno" value="#{incluirAlunoNoCursoBean.aluno.id}" required="true" requiredMessage="Campo obrigatório">
-				            <f:selectItem itemLabel="Selecione um Aluno" itemValue="" />
-				            <f:selectItems value="#{alunoBean.listaAlunos}" var="aluno" itemLabel="#{aluno.nome}" itemValue="#{aluno.id}" />
-				        </p:selectOneMenu>
-				        <p:message for="aluno" />
-		            
-			            <h:outputLabel for="curso" value="Selecione o Curso:" style="font-weight:bold"/>
-				        <p:selectOneMenu id="curso" value="#{incluirAlunoNoCursoBean.curso.id}" required="true" requiredMessage="Campo obrigatório">
-				            <f:selectItem itemLabel="Selecione um curso" itemValue="" />
-				            <f:selectItems value="#{cursoBean.listaCursos}" var="curso" itemLabel="#{curso.nome}" itemValue="#{curso.id}" />
-				        </p:selectOneMenu>
-				        <p:message for="curso" />
-			           
-			        </h:panelGrid>
-			 
-			        <p:commandButton value="Incluir" update="grid growl" action="#{incluirAlunoNoCursoBean.incluirAlunoNoCurso}" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
-			    </p:panel>
+		            	<p:panel header="Lista de Notas dos Alunos cadastrados no curso">
+						<p:dataTable id="tabNotas" value="#{notaBean.notas}" var="n">
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOME DO ALUNO" />
+								</f:facet>
+								<p:outputLabel value="#{n.aluno.nome}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="RM DO ALUNO" />
+								</f:facet>
+								<p:outputLabel value="#{n.aluno.rm}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOME DA DISCIPLINA" />
+								</f:facet>
+								<p:outputLabel value="#{n.disciplina.nome}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOME DO CURSO" />
+								</f:facet>
+								<p:outputLabel value="#{n.disciplina.curso.nome}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOTA DA DISCIPLINA" />
+								</f:facet>
+								<p:outputLabel value="#{n.valor}" />
+							</p:column>
+						</p:dataTable>
+					</p:panel>
+			    
 			    
 			</h:form>
 	</ui:define>
