@@ -16,7 +16,7 @@ usuario: root<br/>
 senha: root<br/>
 
 13 - URL de acesso:<br/>
-<a href="http://localhost:8080/SistemaCadastroTrabalhos/faces/index.xhtml">http://localhost:8080/SistemaCadastroTrabalhos/faces/index.xhtml</a><br/><br/>
+<a href="http://localhost:8080/SistemaCadastroTrabalhos">http://localhost:8080/SistemaCadastroTrabalhos</a><br/><br/>
 
 
 OBS: Ao realizar o primeiro cadastro no sistema, o banco será gerado automaticamente.<br/>
