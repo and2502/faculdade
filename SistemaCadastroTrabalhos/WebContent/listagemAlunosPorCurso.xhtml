@@ -71,7 +71,7 @@
 					        </p:selectOneMenu>
 					        
 					        <p:outputLabel for="fieldNota" value="Nota:" />
-					        <p:inputText id="fieldNota" value="#{alunoBean.nota.valor}" label="Nota" size="2" maxlength="2"/>
+					        <p:inputText id="fieldNota" value="#{alunoBean.nota.valor}" label="Nota" size="2" maxlength="2" required="true" requiredMessage="Campo obrigatorio"/>
 				        	<p:commandButton value="Salvar Nota" icon="ui-icon-check" update="growl gridIncluirNotaDisciplina" action="#{alunoBean.insertNotaAluno}"/>
 				        </h:panelGrid>  
 					</p:dialog>

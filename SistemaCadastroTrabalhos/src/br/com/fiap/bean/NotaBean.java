@@ -54,9 +54,7 @@ public class NotaBean implements Serializable {
 		try {
 			
 			NotaBO notaBO = new NotaBO(em);
-			if(notas.isEmpty() || notas.size() == 0 || notas == null)
-				notas = notaBO.findAllNotas();
-			
+			notas = notaBO.findAllNotas();
 			msg = new FacesMessage("Aviso", "Busca de notas dos alunos efetuado com sucesso");
 		} catch (Exception e) {
 			msg = new FacesMessage("Aviso", "Erro na busca de lista de notas dos alunos");
