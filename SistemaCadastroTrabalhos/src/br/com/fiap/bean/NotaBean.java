@@ -7,9 +7,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
 import javax.persistence.EntityManager;
 
 import br.com.fiap.bo.NotaBO;
@@ -17,7 +16,7 @@ import br.com.fiap.config.JPAUtil;
 import br.com.fiap.entity.Nota;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class NotaBean implements Serializable {
 
 	private Nota nota;
@@ -27,6 +26,7 @@ public class NotaBean implements Serializable {
 	public void inicializarObjetos() {
 		nota = new Nota();
 		notas = new ArrayList<Nota>();
+		buscarNotasAlunos();
 	}
 
 	public Nota getNota() {
@@ -45,7 +45,7 @@ public class NotaBean implements Serializable {
 		this.notas = notas;
 	}
 	
-	public void buscarNotasAlunos(AjaxBehaviorEvent event){
+	public void buscarNotasAlunos(){
 		
 		FacesContext fc = FacesContext.getCurrentInstance();
 		FacesMessage msg = null;
