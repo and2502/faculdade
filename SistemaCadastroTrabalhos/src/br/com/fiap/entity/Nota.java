@@ -28,7 +28,7 @@ public class Nota implements Serializable {
 	
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Aluno aluno;
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -60,5 +60,9 @@ public class Nota implements Serializable {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
-
+	
+	public String getStatus(){
+		return valor >= 7 ? "Aprovado" : "Reprovado";
+	}
+	
 }

@@ -50,8 +50,13 @@
 									<p:outputLabel value="Ações" />
 								</f:facet>
 								<p:commandButton value="Incluir nota" type="button" onclick="PF('dlgNotas').show();">
-									<f:param name="id" value="#{alunoBean.idAluno}" />
-								</p:commandButton>
+									<!-- Codigo ajax utilizado com proposito de submeter um processo pois a função 
+									onclick do primefaces não submete um processo.
+									Nesse processo o componente aguardar um evento de clique com outra função denominada listener
+									que aguarda o evento que ao executar realiza chamada a um metodo do controller passando o id
+									do usuário -->
+									<p:ajax event="click" listener="#{alunoBean.preencherCodigoAluno(a.id)}"/>
+								</p:commandButton>								
 							</p:column>
 						</p:dataTable>
 					</p:panel>
@@ -66,7 +71,7 @@
 					        </p:selectOneMenu>
 					        
 					        <p:outputLabel for="fieldNota" value="Nota:" />
-					        <p:inputText id="fieldNota" value="#{alunoBean.nota.valor}" label="Nota" size="2" maxlength="2"/>
+					        <p:inputText id="fieldNota" value="#{alunoBean.nota.valor}" label="Nota" size="2" maxlength="2" required="true" requiredMessage="Campo obrigatorio"/>
 				        	<p:commandButton value="Salvar Nota" icon="ui-icon-check" update="growl gridIncluirNotaDisciplina" action="#{alunoBean.insertNotaAluno}"/>
 				        </h:panelGrid>  
 					</p:dialog>

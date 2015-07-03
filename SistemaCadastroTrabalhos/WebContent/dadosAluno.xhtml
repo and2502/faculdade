@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/_template.xhtml">
+
+
+	<ui:define name="conteudo">
+			<h:form>
+			    	<p:growl id="growl" showDetail="true" />			        
+		            	
+		            	<p:panel header="Lista de Notas dos Alunos cadastrados no curso">
+						<p:dataTable id="tabNotas" value="#{notaBean.notas}" var="n">
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOME DO ALUNO" />
+								</f:facet>
+								<p:outputLabel value="#{n.aluno.nome}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="RM DO ALUNO" />
+								</f:facet>
+								<p:outputLabel value="#{n.aluno.rm}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOME DA DISCIPLINA" />
+								</f:facet>
+								<p:outputLabel value="#{n.disciplina.nome}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOME DO CURSO" />
+								</f:facet>
+								<p:outputLabel value="#{n.disciplina.curso.nome}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="NOTA DA DISCIPLINA" />
+								</f:facet>
+								<p:outputLabel value="#{n.valor}" />
+							</p:column>
+							<p:column>
+								<f:facet name="header">
+									<p:outputLabel value="Status" />
+								</f:facet>
+								<p:outputLabel value="#{n.status}" />
+							</p:column>
+						</p:dataTable>
+					</p:panel>
+			    
+			    
+			</h:form>
+	</ui:define>
+</ui:composition>
+</html>

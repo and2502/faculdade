@@ -13,10 +13,10 @@
 11- Importe o dump do banco que está localizado em <b>/resources/dump.sql</b> no Mysql<br/>
 12- Usuario/senha do banco configurado na aplicação:<br/>
 usuario: root<br/>
-senha: root<br/>
+senha: fiap<br/>
 
 13 - URL de acesso:<br/>
-<a href="http://localhost:8080/SistemaCadastroTrabalhos/faces/index.xhtml">http://localhost:8080/SistemaCadastroTrabalhos/faces/index.xhtml</a><br/><br/>
+<a href="http://localhost:8080/SistemaCadastroTrabalhos">http://localhost:8080/SistemaCadastroTrabalhos</a><br/><br/>
 
 
 OBS: Ao realizar o primeiro cadastro no sistema, o banco será gerado automaticamente.<br/>
