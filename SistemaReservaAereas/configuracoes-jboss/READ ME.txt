@@ -1,0 +1,5 @@
+Alterar o aquivo standalone.xml:
+C:\opensource\wildfly\standalone\configuration
+
+Copiar a pasta "com":
+C:\opensource\wildfly\modules
