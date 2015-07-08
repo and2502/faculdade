@@ -2,14 +2,14 @@
 
 
 ------ ESTRUTURAÇÃO ----------------------------<br/>
-1 - CRIAR MODELO LOGICO<br/>
-2 - CRIAR BANCO MYSQL(SCRIPTS)<br/>
-3 - CRIAR ESTRUTURA PROJETO(EJB, JPA, JSF)<br/>
-4 - CRIAR DATASOURCE(GENERICO) E DISPONIBILIZAR AQUI NO PROJETO<br/>
-5 - CRIAR ENTIDADES E CRUDS COM JPA E HIBERNATE<br/><br/>
+1 - CRIAR MODELO LOGICO(<b>modelo-logico</b>)<br/> - 100% concluida.
+2 - CRIAR BANCO MYSQL(SCRIPTS)(<b>dump</b>)<br/>  - 100% concluida.
+3 - CRIAR ESTRUTURA PROJETO(EJB, JPA, JSF)(<b>projeto</b>)<br/> - 100% concluida.
+4 - CRIAR DATASOURCE(GENERICO) E DISPONIBILIZAR AQUI NO PROJETO(<b>configuracoes-jboss</b>)<br/> - 100% concluida.
+5 - CRIAR ENTIDADES E CRUDS COM JPA E HIBERNATE<br/><br/> - 100% concluida.
 
 ------- LAYOUT(JSF) ----------------------------<br/>
-1 - CRIAR TEMPLATE(DEFAULT)<br/>
+1 - CRIAR TEMPLATE(DEFAULT)<br/> - 100% concluida.
 2 - TELA DE LOGIN<br/>
 3 - CADASTRO DE CLIENTE<br/>
 4 - CADASTRO DE TRECHOS/VOO<br/>
