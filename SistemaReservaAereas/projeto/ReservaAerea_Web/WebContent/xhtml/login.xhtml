@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/xhtml/_template.xhtml">
+
+	<ui:define name="includeCss">
+		<h:outputStylesheet name="login.css" library="css" />
+	</ui:define>
+
+	<ui:define name="title">
+		Sistema Reservas Áreas - Login
+	</ui:define>
+	<ui:define name="pageAtual">
+		Login
+	</ui:define>
+	<ui:define name="content">
+		<div class="login-page">
+			<div class="login-box">
+				<div class="login-logo">
+					<a href="#{request.contextPath}"><b>Login</b></a>
+				</div>
+				<!-- /.login-logo -->
+				<div class="login-box-body">
+					<p class="login-box-msg">Entre para iniciar sua sessão</p>
+					<form action="../../index2.html" method="post">
+						<div class="form-group has-feedback">
+							<h:inputText value="" styleClass="form-control" p:placeholder="Email"/>
+							<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<h:inputSecret value="" styleClass="form-control" p:placeholder="senha"/>
+								<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						</div>
+						<div class="row">
+							<!-- /.col -->
+							<div class="col-xs-4">
+								<button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+							</div>
+							<!-- /.col -->
+						</div>
+					</form>
+					<!-- /.social-auth-links -->
+					<br/> 
+					<a href="#{request.contextPath}/xhtml/public/registre-se.xhtml" class="text-center">Registre-se agora</a>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

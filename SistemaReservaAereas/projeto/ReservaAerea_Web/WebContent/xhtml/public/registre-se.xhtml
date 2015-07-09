@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/xhtml/_template.xhtml">
+	<ui:define name="title">
+		Sistema Reservas Áreas - Registre-se
+	</ui:define>
+	<ui:define name="pageAtual">
+		Registre-se
+	</ui:define>
+	<ui:define name="content">
+
+		<div class="register-page">
+			<div class="box">
+				<div class="register-logo">
+					<b>Registre-</b>se
+				</div>
+
+				<div class="register-box-body">
+					<p class="login-box-msg">Crie agora mesmo a sua conta</p>
+					<form action="../../index.html" method="post">
+						<div class="form-group has-feedback">
+							<h:inputText value="" styleClass="form-control" p:placeholder="Nome completo" />
+								<span class="glyphicon glyphicon-user form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<h:inputText value="" styleClass="form-control" p:placeholder="Email" />
+								<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<h:inputSecret value="" styleClass="form-control" p:placeholder="Senha" />
+								<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback">
+							<h:inputSecret value="" styleClass="form-control" p:placeholder="Repetir senha" />
+							<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+						</div>
+						<div class="row">
+							<!-- /.col -->
+							<div class="col-xs-4">
+								<button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+							</div>
+							<!-- /.col -->
+						</div>
+					</form>
+
+					<a href="#{request.contextPath}/xhtml/login.xhtml" class="text-center">Eu já tenho uma conta registrada</a>
+				</div>
+				<!-- /.form-box -->
+			</div>
+			<!-- /.register-box -->
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>
