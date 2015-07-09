@@ -9,9 +9,9 @@
 5 - CRIAR ENTIDADES E CRUDS COM JPA E HIBERNATE - <b style="color:green;">100% concluido.</b> <br/><br/> 
 
 ------- LAYOUT(JSF) ----------------------------<br/>
-1 - CRIAR TEMPLATE(DEFAULT) - <b style="color:green;">100% concluido.</b>
-2 - TELA DE LOGIN<br/> - <b style="color:green;">100% concluido.</b>
-3 - REGISTRE-SE CLIENTE<br/> - <b style="color:green;">100% concluido.</b>
+1 - CRIAR TEMPLATE(DEFAULT) - <b style="color:green;">100% concluido.</b><br/>
+2 - TELA DE LOGIN<br/> - <b style="color:green;">100% concluido.</b><br/>
+3 - REGISTRE-SE CLIENTE<br/> - <b style="color:green;">100% concluido.</b><br/>
 4 - CADASTRO DE TRECHOS/VOO<br/>
 5 - EFETUAR RESERVA AEREA - NO FINAL DA RESERVA, SOLICITAR TELA DE LOGIN OU CADASTRO DO CLIENTE, CASO NÃO ESTEJA LOGADO.<br/>
 6 - ACOMPANHE SUA RESERVA CLIENTE - NECESSARIO ESTAR LOGADO.<br/>
