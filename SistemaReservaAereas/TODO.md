@@ -10,8 +10,8 @@
 
 ------- LAYOUT(JSF) ----------------------------<br/>
 1 - CRIAR TEMPLATE(DEFAULT) - <b style="color:green;">100% concluido.</b> <br/>
-2 - TELA DE LOGIN<br/>
-3 - CADASTRO DE CLIENTE<br/>
+2 - TELA DE LOGIN<br/> - <b style="color:green;">100% concluido.</b> <br/>
+3 - CADASTRO DE CLIENTE<br/> - <b style="color:green;">100% concluido.</b> <br/>
 4 - CADASTRO DE TRECHOS/VOO<br/>
 5 - EFETUAR RESERVA/CLIENTE - NO FINAL DA RESERVA, SOLICITAR TELA DE LOGIN OU CADASTRO DO CLIENTE, CASO NÃO ESTEJA LOGADO.<br/>
 6 - CONSULTA DE RESERVAS DO CLIENTE - NECESSARIO ESTAR LOGADO.<br/><br/>
