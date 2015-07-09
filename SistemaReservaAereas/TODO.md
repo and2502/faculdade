@@ -10,8 +10,8 @@
 
 ------- LAYOUT(JSF) ----------------------------<br/>
 1 - CRIAR TEMPLATE(DEFAULT) - <b style="color:green;">100% concluido.</b><br/>
-2 - TELA DE LOGIN<br/> - <b style="color:green;">100% concluido.</b><br/>
-3 - REGISTRE-SE CLIENTE<br/> - <b style="color:green;">100% concluido.</b><br/>
+2 - TELA DE LOGIN - <b style="color:green;">100% concluido.</b><br/>
+3 - REGISTRE-SE CLIENTE - <b style="color:green;">100% concluido.</b><br/>
 4 - CADASTRO DE TRECHOS/VOO<br/>
 5 - EFETUAR RESERVA AEREA - NO FINAL DA RESERVA, SOLICITAR TELA DE LOGIN OU CADASTRO DO CLIENTE, CASO NÃO ESTEJA LOGADO.<br/>
 6 - ACOMPANHE SUA RESERVA CLIENTE - NECESSARIO ESTAR LOGADO.<br/>
