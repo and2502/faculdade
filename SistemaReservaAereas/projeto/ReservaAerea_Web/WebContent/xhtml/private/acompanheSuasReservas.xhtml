@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/xhtml/_template.xhtml">
+	<ui:define name="title">
+		Sistema Reservas Áreas - Acompanhe suas reservas
+	</ui:define>
+	<ui:define name="pageAtual">
+		Acompanhe suas reservas
+	</ui:define>
+	<ui:define name="content">
+
+		<div class="register-page">
+			<div class="box">
+				<div class="register-logo">
+					<b>Acompanhamento</b>Reservas
+				</div>
+
+				<div class="register-box-body">
+					<div class="row">
+					<div class="col-xs-12">
+		              <div class="box">
+		                <div class="box-header">
+		                  <h3 class="box-title">Suas Reservas</h3>
+		                  <div class="box-tools">
+		                    <div class="input-group" style="width: 150px;">
+		                      <h:inputText name="table_search" styleClass="form-control input-sm pull-right" p:placeholder="Search" />
+		                      <div class="input-group-btn">
+		                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+		                      </div>
+		                    </div>
+		                  </div>
+		                </div><!-- /.box-header -->
+		                <div class="box-body table-responsive no-padding">
+		                  <table class="table table-hover">
+		                    <tbody><tr>
+		                      <th>ID</th>
+		                      <th>Cliente</th>
+		                      <th>Número Assento</th>
+		                      <th>Número Voo</th>
+		                      <th>Horário Partida</th>
+		                      <th>Horário Chegada</th>
+		                      <th>Preço</th>
+		                      <th>Origem</th>
+		                      <th>Destino</th>
+		                    </tr>
+		                    <tr>
+		                      <td>183</td>
+		                      <td>John Doe</td>
+		                      <td>A54</td>
+		                      <td>16515</td>
+		                      <td>14/08/2015 18:20</td>
+		                      <td>14/08/2015 19:55</td>
+		                      <td>R$ 280,00</td>
+		                      <td>Aeroporto Guarulhos</td>
+		                      <td>Aeroporto Salvador</td>
+		                    </tr>
+		                  </tbody></table>
+ 		                </div><!--/.box-body -->
+ 		              </div><!--/.box -->
+		            </div>
+		            </div>
+				</div>
+				<!-- /.form-box -->
+			</div>
+			<!-- /.register-box -->
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

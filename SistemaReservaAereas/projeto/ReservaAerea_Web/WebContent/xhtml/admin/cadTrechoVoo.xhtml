@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/xhtml/_template.xhtml">
+	<ui:define name="title">
+		Sistema Reservas Áreas - Cadastro Trecho/Voo
+	</ui:define>
+	<ui:define name="pageAtual">
+		Trecho/Voo
+	</ui:define>
+	<ui:define name="content">
+
+		<div class="register-page">
+			<div class="box">
+				<div class="register-logo">
+					<b>Cadastro-</b>Trecho/Voo
+				</div>
+
+				<div class="register-box-body">
+					<h:form id="formTrechoVoo">
+						<div class="form-group has-feedback">
+						<label>Número do Voo:</label>
+							<h:inputText value="" styleClass="form-control" p:placeholder="Número do Voo" />
+								<span class="glyphicon glyphicon-user form-control-feedback"></span>
+						</div>
+						 <div class="form-group">
+	                     	 <label>Qtd. Trechos:</label>
+	                     	 <h:selectOneMenu id="qtdeTrechos" value="" styleClass="form-control" >
+	                     	 	<f:selectItem itemValue="1"/>
+	                     	 	<f:selectItem itemValue="2"/>
+	                     	 	<f:selectItem itemValue="3"/>
+	                     	 	<f:selectItem itemValue="4"/>
+		                      </h:selectOneMenu>
+	                     </div>					
+						
+						<div class="box-footer">
+		                </div>
+						
+							<div class="form-group">
+							<label>Qtd. Assentos(classe econômica):</label>
+		                     <div class="form-group has-feedback">
+								<h:inputText value="" styleClass="form-control" p:placeholder="Quantidade" />
+								<span class="glyphicon glyphicon-user form-control-feedback"></span>
+							</div>
+							<div class="form-group has-feedback">
+							<label>Qtd. Assentos(classe executiva):</label>
+								<h:inputText value="" styleClass="form-control" p:placeholder="Quantidade" />
+								<span class="glyphicon glyphicon-user form-control-feedback"></span>
+							</div>
+	                  	  </div>
+	                  	  
+	                  	  
+	                  	<div id="listaTrechos">  
+		                  	<div class="col-md-6">
+					              <div class="box box-danger">
+					                <div class="box-header">
+					                  <h3 class="box-title">Trecho</h3>
+					                </div>
+					                <div class="box-body">
+	       									<div class="form-group">
+												 <div class="form-group">
+							                     	 <label>Aeroporto Origem:</label>
+							                     	 <h:selectOneMenu value="" styleClass="form-control" >
+							                     	 	<f:selectItem itemValue="Aeroporto de Guarulhos"/>
+							                      	 </h:selectOneMenu>
+							                     </div>
+							                     <div class="form-group">
+							                     	 <label>Aeroporto Destino:</label>
+								                      <h:selectOneMenu value="" styleClass="form-control" >
+							                     	 	<f:selectItem itemValue="Aeroporto de Congonhas"/>
+							                      	 </h:selectOneMenu>
+							                     </div>
+						                  	  </div>						
+											
+											<div class="form-group has-feedback">
+												<div class="form-group">
+								                    <label>Horário chegada/partida:</label>
+								                    <div class="input-group">
+								                      <div class="input-group-addon">
+								                        <i class="fa fa-clock-o"></i>
+								                      </div>
+								                      <h:inputText id="reservationtime1" value="" styleClass="form-control pull-right dateTimePicker" />
+								                    </div><!-- /.input group -->
+								                  </div>
+											</div>
+											<div class="form-group has-feedback">
+											 	<label>Preço(R$):</label>
+												<h:inputText value="" styleClass="form-control" p:placeholder="Preço" />
+													<span class="glyphicon glyphicon-user form-control-feedback"></span>
+											</div>
+					                </div><!-- /.box-body -->
+					              </div><!-- /.box -->
+	            			</div>
+	            		</div>
+
+	                  	  
+	                  	  
+						<div class="row">
+							<!-- /.col -->
+							<div>
+								<button type="submit" class="btn btn-primary btn-block btn-flat">Registrar Voo</button>
+							</div>
+							<!-- /.col -->
+						</div>
+					</h:form>
+				</div>
+				<!-- /.form-box -->
+			</div>
+			<!-- /.register-box -->
+		</div>
+
+	</ui:define>
+	
+	<ui:define name="includeJs">
+		<script type="text/javascript">
+			//<![CDATA[
+				    $('.dateTimePicker').daterangepicker({
+				        timePicker: true,
+				        format: 'DD/MM/YYYY HH:mm A',
+				        timePickerIncrement: 15,
+				        timePicker12Hour: false,
+				        timePickerSeconds: false,
+				        locale: {
+				            applyLabel: 'Aplicar',
+				            cancelLabel: 'Cancelar',
+				            fromLabel: 'Saída',
+				            toLabel: 'Chegada',
+				            customRangeLabel: 'Custom',
+				            daysOfWeek: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex','Sab'],
+				            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Otubro', 'Novembro', 'Dezembro'],
+				            firstDay: 1
+				        }
+				    });
+	
+				    $('#formTrechoVoo\\:qtdeTrechos').on('change', function (e) {
+				        var valueSelected = this.value;
+				        var qtde = getQtdeTrechos();
+				        if(valueSelected > qtde){
+				        	var trecho = $('#listaTrechos div')[0].outerHTML;
+				        	var listaTrechos = '';
+				        	var index = 0;
+				        	for(var i = qtde; i < valueSelected; i++){
+					        	index = index + 1;
+				        		var frag = trecho.replace('<h3 class="box-title">Trecho', '<h3 class="box-title">Trecho '+(qtde+index));
+					        	$('#listaTrechos').append(frag);
+						    }
+				        	
+					    }else{
+							console.log('remove elementos '+valueSelected);
+							for(var i = valueSelected; i < qtde;){
+								$('#listaTrechos .col-md-6')[qtde-1].remove();
+								qtde = qtde - 1;
+							}
+						}
+				    });
+
+				    function getQtdeTrechos(){
+						return $('#listaTrechos .col-md-6').length;
+					}
+			//]]>
+		</script>
+	</ui:define>
+</ui:composition>
+</html>
