@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/xhtml/_template.xhtml">
+	<ui:define name="title">
+		Sistema Reservas Áreas - Confirmação compra reserva áerea
+	</ui:define>
+	<ui:define name="pageAtual">
+		Confirmação compra reserva áerea
+	</ui:define>
+	<ui:define name="includeCss">
+		<h:outputStylesheet name="confirmacaoReservaAerea.css" library="css" />
+	</ui:define>
+	<ui:define name="content">
+		<section class="invoice">
+          <!-- title row -->
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                <i class="fa fa-globe"></i> Confirmação compra reserva áerea
+                <small class="pull-right">Date: 17/07/2015</small>
+              </h2>
+            </div><!-- /.col -->
+          </div>
+          <!-- info row -->
+          <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+              <address>
+                <strong>Informações Cliente</strong><br/>
+                Nome completo: Adércio Reinan<br/>
+                Email: adercioreinanrocha@gmail.com<br/>
+              </address>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+              <address>
+                <strong>Informações Treecho/Voo</strong><br/>
+                Origem: Aeroporto Guarulhos<br/>
+                Destino: Aeroporto Salvador<br/>
+                Preço: R$ 350,00<br/>
+              </address>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+              <b>Nrº Voo: #007612</b><br/>
+              <br/>
+              <b>Horário Partida:</b> 14/08/2015 18:20<br/>
+              <b>Horário Chegada:</b> 14/08/2015 19:00<br/>
+              <b>Nrº Poltrona:</b> 45A
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+         
+           <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-2">
+            	<div class="container-poltronas" style="background-image: url('#{request.contextPath}/resources/img/assentos.png');">
+	            	<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+	            		
+	            		<!-- Classe Executiva -->
+					      <div class="btn-group" role="group" aria-label="First group">
+					        <button type="button" class="btn btn-primary btn-mini group-executive">1</button>
+					        <button type="button" class="btn btn-primary btn-mini group-executive">2</button>
+					        <button type="button" class="btn btn-primary btn-mini group-executive">3</button>
+					        <button type="button" class="btn btn-primary btn-mini group-executive">4</button>
+					        <button type="button" class="btn btn-primary btn-mini group-executive">5</button>
+					      </div>
+					    
+					      <!-- Classe Economica -->
+					      <div class="btn-group" role="group" aria-label="Second group">
+					        <button type="button" class="btn btn-primary btn-mini">6</button>
+					        <button type="button" class="btn btn-primary btn-mini">7</button>
+					        <button type="button" class="btn btn-primary btn-mini">8</button>
+					        <button type="button" class="btn btn-primary btn-mini">9</button> 
+					        <button type="button" class="btn btn-primary btn-mini">10</button> 
+					        <button type="button" class="btn btn-primary btn-mini">11</button> 
+					        <button type="button" class="btn btn-primary btn-mini">12</button> 
+					        <button type="button" class="btn btn-primary btn-mini">13</button> 
+					        <button type="button" class="btn btn-primary btn-mini">14</button> 
+					        <button type="button" class="btn btn-primary btn-mini">15</button> 
+					        <button type="button" class="btn btn-primary btn-mini">16</button>  
+					      </div>
+					</div>
+					<div class="btn-toolbar container-classe" role="toolbar" aria-label="Toolbar with button groups">
+					      <div class="btn-group" role="group" aria-label="First group">
+					        <button type="button" class="btn btn-default btn-mini btn-classe">A</button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					      
+					      <div class="btn-group" role="group" aria-label="Second group">
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					</div>
+					<div class="btn-toolbar container-classe" role="toolbar" aria-label="Toolbar with button groups">
+					      <div class="btn-group" role="group" aria-label="First group">
+					        <button type="button" class="btn btn-default btn-mini btn-classe">B</button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					      
+					       <div class="btn-group" role="group" aria-label="Second group">
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					</div>
+					<div class="btn-toolbar container-classe" role="toolbar" aria-label="Toolbar with button groups">
+					      <div class="btn-group" role="group" aria-label="First group">
+					        <button type="button" class="btn btn-default btn-mini btn-classe">C</button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					      
+					       <div class="btn-group" role="group" aria-label="Second group">
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					</div>
+					<div class="btn-toolbar container-classe" role="toolbar" aria-label="Toolbar with button groups">
+					      <div class="btn-group" role="group" aria-label="First group">
+					        <button type="button" class="btn btn-default btn-mini btn-classe">D</button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					      
+					       <div class="btn-group" role="group" aria-label="Second group">
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					</div>
+					<div class="btn-toolbar container-classe" role="toolbar" aria-label="Toolbar with button groups">
+					      <div class="btn-group" role="group" aria-label="First group">
+					        <button type="button" class="btn btn-default btn-mini btn-classe">F</button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					      
+					       <div class="btn-group" role="group" aria-label="Second group">
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					</div>
+					<div class="btn-toolbar container-classe" role="toolbar" aria-label="Toolbar with button groups">
+					      <div class="btn-group" role="group" aria-label="First group">
+					        <button type="button" class="btn btn-default btn-mini btn-classe">G</button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					      
+					       <div class="btn-group" role="group" aria-label="Second group">
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button>
+					      </div>
+					</div>
+				</div>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+ <br/> <br/>
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-6">
+              <p class="lead">Metodos de pagamento:</p>
+              <img src="#{request.contextPath}/resources/img/credit/visa.png" alt="Visa"/>
+              <img src="#{request.contextPath}/resources/img/credit/mastercard.png" alt="Mastercard"/>
+              <img src="#{request.contextPath}/resources/img/credit/american-express.png" alt="American Express"/>
+              <img src="#{request.contextPath}/resources/img/credit/paypal2.png" alt="Paypal"/>
+              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;" >
+                Temos as melhores formas de pagamento, com prazos flexiveis e que cabem no seu bolso.
+              </p>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- this row will not appear when printing -->
+          <div class="row no-print">
+            <div class="col-xs-12">
+              <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Voltar</a>
+              <button class="btn btn-success pull-right"><i class="fa fa-check"></i> Confirmar</button>
+            </div>
+          </div>
+        </section>
+	</ui:define>
+</ui:composition>
+</html>

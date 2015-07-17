@@ -1,0 +1,30 @@
+.container-poltronas{
+	 background-repeat: no-repeat;
+	 width: 1000px; 
+	 height: 400px; 
+	 padding-top: 26px;
+}
+
+.btn-toolbar{
+	margin-left:300px;
+}
+
+.btn-mini{
+	width: 28px;
+	height: 30px;
+}
+
+.btn-classe{
+	background-color: #367fa9;
+	border-color: #2e6da4;
+	color: #fff;
+}
+
+.container-classe{
+	margin-left: 274px;
+}
+
+.group-executive{
+	background-color: green;
+	border-color: green;
+}

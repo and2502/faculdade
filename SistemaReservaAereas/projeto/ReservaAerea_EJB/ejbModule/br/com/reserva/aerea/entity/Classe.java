@@ -21,6 +21,9 @@ public class Classe implements Serializable {
 
 	@Column(name="DESCRICAO")
 	private String descricao;
+	
+	@Column(name="TAXA")
+	private Integer taxa;
 
 	//bi-directional many-to-one association to Assento
 	@OneToMany(mappedBy="classe")
@@ -47,6 +50,14 @@ public class Classe implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Integer getTaxa() {
+		return taxa;
+	}
+
+	public void setTaxa(Integer taxa) {
+		this.taxa = taxa;
 	}
 
 	public List<Assento> getAssentos() {
