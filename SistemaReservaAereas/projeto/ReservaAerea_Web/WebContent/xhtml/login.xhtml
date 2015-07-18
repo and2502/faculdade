@@ -5,7 +5,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <ui:composition template="/xhtml/_template.xhtml">
 
@@ -24,25 +25,30 @@
 				<!-- /.login-logo -->
 				<div class="login-box-body">
 					<p class="login-box-msg">Entre para iniciar sua sessão</p>
-					<form action="../../index2.html" method="post">
+					<h:form id="formLogin">
 						<div class="form-group has-feedback">
-							<h:inputText value="" styleClass="form-control" p:placeholder="Email"/>
+							<h:inputText id="email" value="#{loginBean.login.usuario}" styleClass="form-control" p:placeholder="Email" required="true" requiredMessage="Campo obrigatório"
+							validatorMessage="O email não é valido">
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+							</h:inputText>
 							<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+							<h:message for="email" errorStyle="color:red"/>
 						</div>
 						<div class="form-group has-feedback">
-							<h:inputSecret value="" styleClass="form-control" p:placeholder="senha"/>
+							<h:inputSecret id="senha" value="#{loginBean.login.senha}" styleClass="form-control" p:placeholder="senha" required="true" requiredMessage="Campo obrigatório"/>
 								<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+								<h:message for="senha" errorStyle="color:red"/>
 						</div>
 						<div class="row">
 							<!-- /.col -->
 							<div class="col-xs-4">
-								<button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+								<h:commandButton id="btnLogar" styleClass="btn btn-primary btn-block btn-flat" value="Entrar" action="#{loginBean.logar}" />
 							</div>
 							<!-- /.col -->
 						</div>
-					</form>
-					<!-- /.social-auth-links -->
+					</h:form>
 					<br/> 
+						<h:messages globalOnly="true" showSummary="false" showDetail="true" errorStyle="color:red"/>
 					<a href="#{request.contextPath}/xhtml/public/registre-se.xhtml" class="text-center">Registre-se agora</a>
 				</div>
 			</div>

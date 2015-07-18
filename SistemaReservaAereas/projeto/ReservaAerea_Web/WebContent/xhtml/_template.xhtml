@@ -4,7 +4,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core">
 <f:view contentType="text/html">
 <h:head>
 	<meta charset="UTF-8" />
@@ -55,23 +56,31 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="#{request.contextPath}/resources/img/user2-160x160.jpg" class="user-image" alt="User Image" />
-                  <span class="hidden-xs">Seja bem vindo, visitante</span>
+                  <span class="hidden-xs">Seja bem vindo, <c:if test="#{loginBean.loggedUsuario}">#{loginBean.usuarioLogado.cliente.nome}</c:if>
+                  		<c:if test="#{!loginBean.loggedUsuario}">Visitante</c:if>
+                 </span>
                 </a>
-                <ul class="dropdown-menu">
-                  <!-- User image -->
-                  <li class="user-header">
-                    <img src="#{request.contextPath}/resources/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
-                    <p>
-                      Visitante
-                    </p>
-                  </li>
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-                    <div class="pull-right">
-                      <a href="#{request.contextPath}/xhtml/login.xhtml" class="btn btn-default btn-flat">Sair</a>
-                    </div>
-                  </li>
-                </ul>
+		             <c:if test="#{loginBean.loggedUsuario}">   
+			                <ul class="dropdown-menu">
+			                  <!-- User image -->
+			                  <li class="user-header">
+			                    <img src="#{request.contextPath}/resources/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+			                    <p>
+			                      <h:panelGrid rendered="#{loginBean.loggedUsuario}">#{loginBean.usuarioLogado.cliente.nome}</h:panelGrid>
+			                  	  <h:panelGrid rendered="#{!loginBean.loggedUsuario}">Visitante</h:panelGrid>
+			                    </p>
+			                  </li>
+			                 
+			                  <!-- Menu Footer-->
+			                  <li class="user-footer">
+			                    <div class="pull-right">
+			                    <h:form>
+			                      <h:commandButton value="Sair" action="#{loginBean.logout}" styleClass="btn btn-default btn-flat"/>
+			                    </h:form>
+			                    </div>
+			                  </li>
+			                </ul>
+		              </c:if>
               </li>
             </ul>
           </div>
@@ -87,11 +96,15 @@
               <img src="#{request.contextPath}/resources/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Visitante</p>
+              <p>
+              	<h:panelGrid rendered="#{loginBean.loggedUsuario}">#{loginBean.usuarioLogado.cliente.nome}</h:panelGrid>
+                <h:panelGrid rendered="#{!loginBean.loggedUsuario}">Visitante</h:panelGrid>
+              </p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
           <ul class="sidebar-menu">
+          <c:if test="#{loginBean.adminUsuario}">
             <li class="active treeview">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Admin - Cadastros</span> <i class="fa fa-angle-left pull-right"></i>
@@ -100,12 +113,15 @@
                 <li class="active"><a href="#{request.contextPath}/xhtml/admin/cadTrechoVoo.xhtml"><i class="fa fa-circle-o"></i> Trechos/voo</a></li>
               </ul>
             </li>
-            <li>
-              <a href="#{request.contextPath}/xhtml/public/registre-se.xhtml">
-                <i class="fa fa-user"></i> <span>Registre-se</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
-            <li><a href="#{request.contextPath}/xhtml/login.xhtml"><i class="fa fa-sign-in"></i> <span>Login</span></a></li>
+            </c:if>
+            <c:if test="#{!loginBean.loggedUsuario}">
+	            <li>
+	              <a href="#{request.contextPath}/xhtml/public/registre-se.xhtml">
+	                <i class="fa fa-user"></i> <span>Registre-se</span> <small class="label pull-right bg-green">new</small>
+	              </a>
+	            </li>
+           	 	<li><a href="#{request.contextPath}/xhtml/login.xhtml"><i class="fa fa-sign-in"></i> <span>Login</span></a></li>
+            </c:if>
             <li><a href="#{request.contextPath}/xhtml/public/listaTreechoVoo.xhtml"><i class="fa fa-plane"></i> <span>Encontre sua reserva áerea</span></a></li>
             <li><a href="#{request.contextPath}/xhtml/private/acompanheSuasReservas.xhtml"><i class="fa fa-search"></i> <span>Acompanhe suas reservas</span></a></li>
           </ul>

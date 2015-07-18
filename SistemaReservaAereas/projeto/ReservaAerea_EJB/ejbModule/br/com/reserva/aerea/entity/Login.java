@@ -1,8 +1,15 @@
 package br.com.reserva.aerea.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -26,8 +33,12 @@ public class Login implements Serializable {
 	private String usuario;
 
 	//bi-directional many-to-one association to Cliente
-	@OneToMany(mappedBy="login")
-	private List<Cliente> clientes;
+	@OneToOne
+	@JoinColumn(name="ID_CLIENTE")
+	private Cliente cliente;
+	
+	@Column(name="ADMIN")
+	private char admin;
 
 	public Login() {
 	}
@@ -56,26 +67,20 @@ public class Login implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public List<Cliente> getClientes() {
-		return this.clientes;
+	public Cliente getCliente() {
+		return this.cliente;
 	}
 
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	public Cliente addCliente(Cliente cliente) {
-		getClientes().add(cliente);
-		cliente.setLogin(this);
-
-		return cliente;
+	public char getAdmin() {
+		return admin;
 	}
 
-	public Cliente removeCliente(Cliente cliente) {
-		getClientes().remove(cliente);
-		cliente.setLogin(null);
-
-		return cliente;
+	public void setAdmin(char admin) {
+		this.admin = admin;
 	}
 
 }

@@ -24,7 +24,7 @@
             <div class="col-xs-12">
               <h2 class="page-header">
                 <i class="fa fa-globe"></i> Confirmação compra reserva áerea
-                <small class="pull-right">Date: 17/07/2015</small>
+                <small class="pull-right">Data: #{loginBean.dateNow}</small>
               </h2>
             </div><!-- /.col -->
           </div>
@@ -33,8 +33,8 @@
             <div class="col-sm-4 invoice-col">
               <address>
                 <strong>Informações Cliente</strong><br/>
-                Nome completo: Adércio Reinan<br/>
-                Email: adercioreinanrocha@gmail.com<br/>
+                Nome completo: #{loginBean.usuarioLogado.cliente.nome}<br/>
+                Email: #{loginBean.usuarioLogado.usuario}<br/>
               </address>
             </div><!-- /.col -->
             <div class="col-sm-4 invoice-col">
@@ -249,8 +249,8 @@
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-xs-12">
-              <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Voltar</a>
-              <button class="btn btn-success pull-right"><i class="fa fa-check"></i> Confirmar</button>
+              <a href="#{request.contextPath}/xhtml/public/listaTreechoVoo.xhtml" target="_blank" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Voltar</a>
+              <a href="#{request.contextPath}/xhtml/private/acompanheSuasReservas.xhtml" class="btn btn-success pull-right"><i class="fa fa-check"></i> Confirmar</a>
             </div>
           </div>
         </section>

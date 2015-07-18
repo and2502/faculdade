@@ -202,10 +202,14 @@ CREATE TABLE `LOGIN` (
   `ID_LOGIN` int(15) NOT NULL AUTO_INCREMENT,
   `USUARIO` varchar(45) NOT NULL,
   `SENHA` varchar(45) NOT NULL,
+  `ADMIN` char(1) NOT NULL,
+  `ID_CLIENTE` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID_LOGIN`),
   UNIQUE KEY `ID_LOGIN_UNIQUE` (`ID_LOGIN`),
-  UNIQUE KEY `USUARIO_UNIQUE` (`USUARIO`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `USUARIO_UNIQUE` (`USUARIO`),
+  KEY `FK_gpwg14bs3pqvdorq0f6t81nl8` (`ID_CLIENTE`),
+  CONSTRAINT `FK_gpwg14bs3pqvdorq0f6t81nl8` FOREIGN KEY (`ID_CLIENTE`) REFERENCES `CLIENTE` (`ID_CLIENTE`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +218,7 @@ CREATE TABLE `LOGIN` (
 
 LOCK TABLES `LOGIN` WRITE;
 /*!40000 ALTER TABLE `LOGIN` DISABLE KEYS */;
-INSERT INTO `LOGIN` VALUES (1,'adercio','adercio'),(2,'cristiano','cristiano'),(3,'anderson','anderson');
+INSERT INTO `LOGIN` VALUES (1,'adercio@gmail.com','adercio','N',1),(2,'cristiano@gmail.com','cristiano','N',2),(3,'anderson@gmail.com','anderson','N',3),(4,'admin@gmail.com','admin','S',4);
 /*!40000 ALTER TABLE `LOGIN` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,7 +269,7 @@ CREATE TABLE `CLIENTE` (
   UNIQUE KEY `ID_CLIENTE_UNIQUE` (`ID_CLIENTE`),
   KEY `fk_Cliente_Login1` (`ID_LOGIN`),
   CONSTRAINT `fk_Cliente_Login1` FOREIGN KEY (`ID_LOGIN`) REFERENCES `LOGIN` (`ID_LOGIN`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -274,7 +278,7 @@ CREATE TABLE `CLIENTE` (
 
 LOCK TABLES `CLIENTE` WRITE;
 /*!40000 ALTER TABLE `CLIENTE` DISABLE KEYS */;
-INSERT INTO `CLIENTE` VALUES (1,'Adercio Reinan',1),(2,'Cristiano',2),(3,'Anderson',3);
+INSERT INTO `CLIENTE` VALUES (1,'Adercio Reinan',1),(2,'Cristiano',2),(3,'Anderson',3),(4,'Administrador',4);
 /*!40000 ALTER TABLE `CLIENTE` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -287,4 +291,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-17  1:11:00
+-- Dump completed on 2015-07-17 22:27:38
