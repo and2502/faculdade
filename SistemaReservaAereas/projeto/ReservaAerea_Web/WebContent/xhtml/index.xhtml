@@ -13,32 +13,49 @@
 	<ui:define name="pageAtual">
 		Mapa Áereo
 	</ui:define>
+	<ui:define name="includeCss">
+		<h:outputStylesheet name="jquery-jvectormap-1.2.2.css" library="plugins/jvectormap" />
+	</ui:define>
 	<ui:define name="content">
-		<div id="map-canvas"></div>
+	
+		<div class="box box-success">
+			<div class="box-header with-border">Aeroportos de Atendimento</div>
+			<div class="box-tools pull-right">
+			</div>
+			<div class="box-body no-padding">
+				<div class="row">
+					<div class="col-md-9 col-sm-8">
+						<div class="pad">
+							<div id="world-map-markers" style="width: 1100px; height: 700px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</ui:define>
 	<ui:define name="includeJs">
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWl9FJP3IGjY_xvUUFWm8Twpyvp4X_GnY" />
+		<h:outputScript name="jquery-jvectormap-1.2.2.min.js" library="plugins/jvectormap" />
+    	<h:outputScript name="jquery-jvectormap-world-mill-en.js" library="plugins/jvectormap" />
 		<script type="text/javascript">
-
-
-		function initialize() {
-		  var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-		  var mapOptions = {
-		    zoom: 4,
-		    center: myLatlng
-		  }
-		  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-		  var marker = new google.maps.Marker({
-		      position: myLatlng,
-		      map: map,
-		      title: 'Hello World!'
-		  });
-		}
-
-		google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
+			var jsonAeroportos = #{aeroportoBean.jsonAeroportos};
+		
+			$('#world-map-markers').vectorMap({
+			    map: 'world_mill_en',
+			    scaleColors: ['#C8EEFF', '#0071A4'],
+			    normalizeFunction: 'polynomial',
+			    hoverOpacity: 0.7,
+			    hoverColor: false,
+			    markerStyle: {
+			      initial: {
+			        fill: '#F8E23B',
+			        stroke: '#383f47'
+			      }
+			    },
+			    backgroundColor: '#383f47',
+			    markers: jsonAeroportos
+			  });
+    	</script>
 		
 	</ui:define>
 </ui:composition>
