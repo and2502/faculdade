@@ -18,8 +18,7 @@ public class Cliente implements Serializable {
 	@Column(name="NOME")
 	private String nome;
 
-	//bi-directional many-to-one association to Login
-	@ManyToOne
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
 	@JoinColumn(name="ID_LOGIN")
 	private Login login;
 

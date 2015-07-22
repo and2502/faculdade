@@ -32,8 +32,7 @@ public class Login implements Serializable {
 	@Column(name="USUARIO")
 	private String usuario;
 
-	//bi-directional many-to-one association to Cliente
-	@OneToOne
+	@OneToOne(mappedBy="login")
 	@JoinColumn(name="ID_CLIENTE")
 	private Cliente cliente;
 	

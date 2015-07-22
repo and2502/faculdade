@@ -24,31 +24,40 @@
 
 				<div class="register-box-body">
 					<p class="login-box-msg">Crie agora mesmo a sua conta</p>
-					<form action="../../index.html" method="post">
+					<h:form id="formRegistre">
 						<div class="form-group has-feedback">
-							<h:inputText value="" styleClass="form-control" p:placeholder="Nome completo" />
+							<h:inputText id="nmCompleto" value="#{clienteBean.cliente.nome}" styleClass="form-control" p:placeholder="Nome completo" required="true" requiredMessage="Campo obrigatório"/>
 								<span class="glyphicon glyphicon-user form-control-feedback"></span>
+								<h:message for="nmCompleto" errorStyle="color:red"/>
 						</div>
 						<div class="form-group has-feedback">
-							<h:inputText value="" styleClass="form-control" p:placeholder="Email" />
+							<h:inputText id="email" value="#{clienteBean.cliente.login.usuario}" styleClass="form-control" p:placeholder="Email" required="true" requiredMessage="Campo obrigatório" 
+							validatorMessage="O email não é valido">
+								<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+							</h:inputText>
 								<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+								<h:message for="email" errorStyle="color:red"/>
 						</div>
 						<div class="form-group has-feedback">
-							<h:inputSecret value="" styleClass="form-control" p:placeholder="Senha" />
+							<h:inputSecret id="senha" value="#{clienteBean.cliente.login.senha}" binding="#{clienteBean.senhaInput}" styleClass="form-control" p:placeholder="Senha" required="true" requiredMessage="Campo obrigatório"  />
 								<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+								<h:message for="senha" errorStyle="color:red"/>
 						</div>
 						<div class="form-group has-feedback">
-							<h:inputSecret value="" styleClass="form-control" p:placeholder="Repetir senha" />
+							<h:inputSecret id="repeteSenha" value="#{clienteBean.repeteSenha}" styleClass="form-control" p:placeholder="Repetir senha" required="true" requiredMessage="Campo obrigatório" 
+							validator="#{clienteBean.validateSenha}" />
 							<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+							<h:message for="repeteSenha" errorStyle="color:red"/>
+							<h:messages globalOnly="true" showSummary="false" showDetail="true" errorStyle="color:red"/>
 						</div>
 						<div class="row">
 							<!-- /.col -->
 							<div>
-								<button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+								<h:commandButton id="btnRegistrar" styleClass="btn btn-primary btn-block btn-flat" value="Registrar" action="#{clienteBean.registrar}" />
 							</div>
 							<!-- /.col -->
 						</div>
-					</form>
+					</h:form>
 
 					<a href="#{request.contextPath}/xhtml/login.xhtml" class="text-center">Eu já tenho uma conta registrada</a>
 				</div>

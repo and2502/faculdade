@@ -36,7 +36,7 @@ public class LoginBean extends AbstractBean implements Serializable{
 	}
 	
 	public String logar(){
-		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		HttpServletRequest request = getHttpServletRequest();
 			String url = (String) request.getSession().getAttribute("redirectTo");
 			if(url == null){
 				url = "/xhtml/index.xhtml";
