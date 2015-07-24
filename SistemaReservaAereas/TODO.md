@@ -21,7 +21,7 @@
 ------- APLICAR VALIDAÇÕES TELA/REGRAS DE NEGOCIO ----------------------------<br/>
 1 - TELA DE LOGIN - <b style="color:green;">100% concluido.</b><br/>
 2 - REGISTRE-SE CLIENTE<br/>- <b style="color:green;">100% concluido.</b><br/>
-3 - CADASTRO DE TRECHOS/VOO<br/> - <b>ANDAMENTO(ADERCIO)</b>
+3 - CADASTRO DE TRECHOS/VOO - <b>ANDAMENTO(ADERCIO)</b><br/>
 4 - EFETUAR RESERVA AEREA - NO FINAL DA RESERVA, SOLICITAR TELA DE LOGIN OU CADASTRO DO CLIENTE, CASO NÃO ESTEJA LOGADO.<br/>
 5 - ACOMPANHE SUA RESERVA CLIENTE - NECESSARIO ESTAR LOGADO.<br/>
 7 - LISTAGEM DE TODOS OS AEROPORTOS DISPONIVEIS.(OPCIONAL)- <b style="color:green;">100% concluido.</b><br/><br/>
