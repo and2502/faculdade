@@ -1,7 +1,9 @@
 package br.com.reserva.aerea.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -23,11 +25,11 @@ public class Voo implements Serializable {
 	private String nrVoo;
 
 	//bi-directional many-to-one association to CapacidadeVoo
-	@OneToMany(mappedBy="voo")
+	@OneToMany(mappedBy="voo", cascade=CascadeType.ALL)
 	private List<CapacidadeVoo> capacidadeVoos;
 
 	//bi-directional many-to-one association to Trecho
-	@OneToMany(mappedBy="voo")
+	@OneToMany(mappedBy="voo", cascade=CascadeType.ALL )
 	private List<Trecho> trechos;
 
 	public Voo() {
@@ -91,6 +93,47 @@ public class Voo implements Serializable {
 		trecho.setVoo(null);
 
 		return trecho;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((capacidadeVoos == null) ? 0 : capacidadeVoos.hashCode());
+		result = prime * result + idVoo;
+		result = prime * result + ((nrVoo == null) ? 0 : nrVoo.hashCode());
+		result = prime * result + ((trechos == null) ? 0 : trechos.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Voo other = (Voo) obj;
+		if (capacidadeVoos == null) {
+			if (other.capacidadeVoos != null)
+				return false;
+		} else if (!capacidadeVoos.equals(other.capacidadeVoos))
+			return false;
+		if (idVoo != other.idVoo)
+			return false;
+		if (nrVoo == null) {
+			if (other.nrVoo != null)
+				return false;
+		} else if (!nrVoo.equals(other.nrVoo))
+			return false;
+		if (trechos == null) {
+			if (other.trechos != null)
+				return false;
+		} else if (!trechos.equals(other.trechos))
+			return false;
+		return true;
 	}
 
 }

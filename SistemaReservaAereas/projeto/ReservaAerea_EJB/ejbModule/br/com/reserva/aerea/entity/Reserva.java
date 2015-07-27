@@ -38,8 +38,8 @@ public class Reserva implements Serializable {
 
 	//bi-directional many-to-one association to Voo
 	@ManyToOne
-	@JoinColumn(name="ID_VOO")
-	private Voo voo;
+	@JoinColumn(name="ID_TRECHO")
+	private Trecho trecho;
 
 	public Reserva() {
 	}
@@ -56,10 +56,6 @@ public class Reserva implements Serializable {
 		return assento;
 	}
 
-	public Voo getVoo() {
-		return voo;
-	}
-
 	public void setIdReserva(int idReserva) {
 		this.idReserva = idReserva;
 	}
@@ -72,8 +68,12 @@ public class Reserva implements Serializable {
 		this.assento = assento;
 	}
 
-	public void setVoo(Voo voo) {
-		this.voo = voo;
+	public Trecho getTrecho() {
+		return trecho;
+	}
+
+	public void setTrecho(Trecho trecho) {
+		this.trecho = trecho;
 	}
 
 	

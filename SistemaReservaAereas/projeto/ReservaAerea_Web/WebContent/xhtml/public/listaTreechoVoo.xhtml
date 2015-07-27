@@ -21,81 +21,63 @@
 				<div class="register-logo">
 					<b>Lista</b>Trechos\Voo
 				</div>
-
-				<div class="register-box-body">
-					<div class="row">
-					<div class="col-xs-12">
-		              <div class="box">
-		                <div class="box-header">
-		                  <h3 class="box-title">Suas Reservas</h3>
-		                  <div class="box-tools">
-		                    <div class="input-group" style="width: 150px;">
-		                      <h:inputText name="table_search" styleClass="form-control input-sm pull-right" p:placeholder="Search" />
-		                      <div class="input-group-btn">
-		                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div><!-- /.box-header -->
-		                <div class="box-body table-responsive no-padding">
-		                  <table class="table table-hover">
-		                    <tbody><tr>
-		                      <th>Número Voo</th>
-		                      <th>Origem</th>
-		                      <th>Destino</th>
-		                      <th>Qtde Vagas restantes(Economica/Executiva)</th>
-		                      <th>Horário Partida</th>
-		                      <th>Horário Chegada</th>
-		                      <th>Preço</th>
-		                      <th>Ação</th>
-		                    </tr>
-		                    <tr>
-		                      <td>51565</td>
-		                      <td>Aeroporto Guarulhos</td>
-		                      <td>Aeroporto Salvador</td>
-		                      <td>40/10</td>
-		                      <td>14/08/2015 18:20</td>
-		                      <td>14/08/2015 19:55</td>
-		                      <td>R$ 280,00</td>
-		                      <td><a href="#{request.contextPath}/xhtml/private/confirmacaoReservaAerea.xhtml" class="btn btn-primary btn-block btn-flat">Comprar</a></td>
-		                    </tr>
-		                    <tr>
-		                      <td>51565</td>
-		                      <td>Aeroporto Guarulhos</td>
-		                      <td>Aeroporto Porto Seguro</td>
-		                      <td>60/15</td>
-		                      <td>14/08/2015 18:20</td>
-		                      <td>14/08/2015 19:00</td>
-		                      <td>R$ 100,00</td>
-		                      <td><a href="#{request.contextPath}/xhtml/private/confirmacaoReservaAerea.xhtml" class="btn btn-primary btn-block btn-flat">Comprar</a></td>
-		                    </tr>
-		                     <tr>
-		                      <td>52566</td>
-		                      <td>Aeroporto Rio de Janeiro</td>
-		                      <td>Aeroporto Congonhas</td>
-		                      <td>33/15</td>
-		                      <td>20/08/2015 10:20</td>
-		                      <td>20/08/2015 11:55</td>
-		                      <td>R$ 120,00</td>
-		                      <td><a href="#{request.contextPath}/xhtml/private/confirmacaoReservaAerea.xhtml" class="btn btn-primary btn-block btn-flat">Comprar</a></td>
-		                    </tr>
-		                    <tr>
-		                      <td>54561</td>
-		                      <td>Aeroporto Porto Alegre</td>
-		                      <td>Aeroporto Guarulhos</td>
-		                      <td>80/10</td>
-		                      <td>19/08/2015 14:10</td>
-		                      <td>25/08/2015 15:55</td>
-		                      <td>R$ 220,00</td>
-		                      <td><a href="#{request.contextPath}/xhtml/private/confirmacaoReservaAerea.xhtml" class="btn btn-primary btn-block btn-flat">Comprar</a></td>
-		                    </tr>
-		                  </tbody></table>
- 		                </div><!--/.box-body -->
- 		              </div><!--/.box -->
-		            </div>
-		            </div>
-				</div>
-				<!-- /.form-box -->
+					<h:form>
+						<div class="register-box-body">
+							<div class="row">
+							<div class="col-xs-12">
+				              <div class="box">
+				                <div class="box-header">
+				                  <h3 class="box-title">Suas Reservas</h3>
+				                  <div class="box-tools">
+				                    <div class="input-group" style="width: 150px;">
+				                      <h:inputText name="table_search" styleClass="form-control input-sm pull-right" p:placeholder="Search" />
+				                      <div class="input-group-btn">
+				                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </div><!-- /.box-header -->
+				                <div class="box-body table-responsive no-padding">
+				                  <table class="table table-hover">
+				                    <tbody>
+				                    <tr>
+				                      <th>Número Voo</th>
+				                      <th>Origem</th>
+				                      <th>Destino</th>
+				                      <th>Horário Partida</th>
+				                      <th>Horário Chegada</th>
+				                      <th>Preço</th>
+				                      <th>Ação</th>
+				                    </tr>
+				                    	<ui:repeat var="trecho" value="#{trechoVooBean.allTrechos}" varStatus="status">
+						                    <tr>
+						                      <td>#{trecho.voo.nrVoo}</td>
+						                      <td>#{trecho.aeroportoOrigem.localizacao} - #{trecho.aeroportoOrigem.nome}</td>
+						                      <td>#{trecho.aeroportoDestino.localizacao} - #{trecho.aeroportoDestino.nome}</td>
+						                      <td>
+							                      <h:outputText value="#{trecho.horarioPartida.time}" >
+												              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+												 </h:outputText>
+						                      </td>
+						                      <td>
+						                      	<h:outputText value="#{trecho.horarioChegada.time}" >
+												              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+												 </h:outputText>
+						                     </td>
+						                      <td>R$ #{trecho.preco}</td>
+						                      <td><h:commandButton value="Comprar" styleClass="btn btn-primary btn-block btn-flat" action="#{reservaBean.addNoCarrino(trecho)}">
+						                      </h:commandButton></td>
+						                    </tr>
+					                   </ui:repeat>
+				                  </tbody>
+				                 </table>
+		 		                </div><!--/.box-body -->
+		 		              </div><!--/.box -->
+				            </div>
+				            </div>
+						</div>
+						<!-- /.form-box -->
+					</h:form>
 			</div>
 			<!-- /.register-box -->
 		</div>

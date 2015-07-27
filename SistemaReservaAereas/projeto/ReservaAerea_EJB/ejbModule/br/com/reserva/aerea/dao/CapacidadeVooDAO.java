@@ -8,5 +8,8 @@ import br.com.reserva.aerea.entity.CapacidadeVoo;
 @Remote
 public interface CapacidadeVooDAO extends DAO<CapacidadeVoo,Integer>{
 
+	CapacidadeVoo findCapacidadeVooExecutivoByIdVoo(Integer id);
+	
+	CapacidadeVoo findCapacidadeVooEconomicoByIdVoo(Integer id);
 	
 }

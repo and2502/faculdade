@@ -1,6 +1,7 @@
 package br.com.reserva.aerea.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -17,13 +18,14 @@ public class AeroportoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String jsonAeroportos;
+	private List<Aeroporto> listaAeroportos;
 
 	@EJB
 	private AeroportoDAO aeroportoDAO;
 
 	@PostConstruct
 	public void inicializar() {
-		List<Aeroporto> listaAeroportos = aeroportoDAO.findAll();
+		listaAeroportos = aeroportoDAO.findAll();
 		if(listaAeroportos != null && !listaAeroportos.isEmpty()){
 			StringBuilder json = new StringBuilder();
 			json.append("[");
@@ -39,6 +41,14 @@ public class AeroportoBean implements Serializable {
 	public String getJsonAeroportos() {
 		return jsonAeroportos;
 	}
+	
+	public List<Aeroporto> getAllAeroportos(){
+		if(listaAeroportos == null || listaAeroportos.isEmpty()){
+			listaAeroportos = aeroportoDAO.findAll();
+		}
+		return this.listaAeroportos;
+	}
+	
 	
 	public void setJsonAeroportos(String jsonAeroportos) {
 		this.jsonAeroportos = jsonAeroportos;

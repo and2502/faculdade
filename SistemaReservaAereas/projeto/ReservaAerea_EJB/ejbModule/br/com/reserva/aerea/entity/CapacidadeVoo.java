@@ -30,8 +30,14 @@ public class CapacidadeVoo implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_VOO")
 	private Voo voo;
+	
 
 	public CapacidadeVoo() {
+	}
+	
+	public CapacidadeVoo(int qtdeAssentos, Classe classe) {
+		this.qtdeAssento = qtdeAssentos;
+		this.classe = classe;
 	}
 
 	public int getIdCapacidadeVoo() {
