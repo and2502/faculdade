@@ -18,5 +18,14 @@ public class AssentoDAOImpl extends DAOImpl<Assento,Integer> implements AssentoD
 		return query.getSingleResult();
 	}
 
+	@Override
+	public boolean isDisponivel(Integer idTrecho, String posicao, int nrAssento) {
+		TypedQuery<Object> query = em.createQuery("from Reserva r where r.trecho.idTrecho = :idTrecho and r.assento.nrAssento = :nrAssento and r.assento.posicao = :posicao ", Object.class);
+		query.setParameter("idTrecho", idTrecho);
+		query.setParameter("nrAssento", String.valueOf(nrAssento));
+		query.setParameter("posicao", posicao);
+		return query.getResultList().size() > 0;
+	}
+
 
 }

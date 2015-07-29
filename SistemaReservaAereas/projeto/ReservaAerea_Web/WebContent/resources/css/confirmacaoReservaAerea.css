@@ -37,7 +37,7 @@
 }
 
 .btn-group-executive{
-	width: 163px;
+	width: 164px;
 }
 
 .btn-without-selection{
@@ -50,4 +50,9 @@
     background-color: none;
     color: #ffffff;
     /* or something like that */
+}
+
+
+.fa-user:before {
+    margin-left: -3px !important;
 }

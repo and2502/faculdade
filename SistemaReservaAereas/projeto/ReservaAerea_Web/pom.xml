@@ -5,14 +5,12 @@
 	<artifactId>ReservaAerea_Web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-
 	<repositories>
 		<repository>
 			<id>JBoss Repository</id>
 			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
 		</repository>
 	</repositories>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -24,15 +22,12 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<dependencies>
-
 		<dependency>
 			<groupId>ReservaAerea_EJB</groupId>
 			<artifactId>ReservaAerea_EJB</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -43,16 +38,12 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>2.1.7</version>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
-
-
 	</dependencies>
-
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -70,6 +61,7 @@
 				<configuration>
 					<warSourceDirectory>WebContent</warSourceDirectory>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<warName>reserva-aerea-web</warName>
 				</configuration>
 			</plugin>
 		</plugins>

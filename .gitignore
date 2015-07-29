@@ -1,3 +1,8 @@
-/classes/*
+.settings/
+classes/*
 *.class
-/build/*
+build/*
+.project
+.settings/org.eclipse.wst.common.component
+.classpath
+.project

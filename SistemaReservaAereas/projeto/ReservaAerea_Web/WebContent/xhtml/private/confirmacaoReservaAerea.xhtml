@@ -17,6 +17,13 @@
 	<ui:define name="includeCss">
 		<h:outputStylesheet name="confirmacaoReservaAerea.css" library="css" />
 	</ui:define>
+	<script type="text/javascript">
+		function modifyColor(isDisponivel){
+			if(!isDisponivel){
+				$(this).css('background-color','red');
+			}
+		}
+	</script>
 	<ui:define name="content">
 	<h:form>
 				<section class="invoice">
@@ -58,7 +65,7 @@
 						              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
 						 </h:outputText>
 		              <br/>
-		              <b>Nrº Poltrona: </b> <h:outputLabel id="nrPoltrona" value="#{confirmaReservaBean.assento.posicao}#{confirmaReservaBean.assento.nrAssento}" />
+		              <b>Nrº Poltrona: </b> <h:outputLabel style="color:red;" id="nrPoltrona" value="#{confirmaReservaBean.assento.posicao}#{confirmaReservaBean.assento.nrAssento}" />
 		            </div><!-- /.col -->
 		          </div><!-- /.row -->
 		         
@@ -99,18 +106,18 @@
 						        		<a href="#" class="btn btn-mini btn-classe nohover">A</a>
 								        <ui:repeat var="assento" value="#{assentoVooBean.listAssentosExecutivoA}" varStatus="status" >
 			<!-- 						        <button type="button" class="btn btn-default btn-mini"><i class="fa fa-user"></i></button> -->
-									        <h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-									        	<f:ajax onevent="click" execute="@none" render="nrPoltrona" />
-									        </h:commandButton>
+									        <h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+									        		<i class="fa fa-user">#{assento.disponivel}</i>
+									        </h:commandLink>
 								        </ui:repeat>
 									 </div>
 								      
 								      <!-- Assentos economicos -->
 								      <div class="btn-group" role="group" aria-label="Second group">
 									      <ui:repeat var="assento" value="#{assentoVooBean.listAssentosEconomicoA}" varStatus="status" >
-									        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-									        		<f:ajax onevent="click" render="nrPoltrona" />
-									        	</h:commandButton>
+									        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+									        		<i class="fa fa-user">#{assento.disponivel}</i>
+									        	</h:commandLink>
 									      </ui:repeat>
 								      </div>
 								</div>
@@ -120,18 +127,18 @@
 								      <div class="btn-group btn-group-executive" role="group" aria-label="First group">
 								        <a href="#" class="btn btn-mini btn-classe nohover">B</a>
 								        <ui:repeat var="assento" value="#{assentoVooBean.listAssentosExecutivoB}" varStatus="status">
-								        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-								        		<f:ajax onevent="click" render="nrPoltrona" />
-								        	</h:commandButton>
+								        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+								        		<i class="fa fa-user">#{assento.disponivel}</i>
+								        	</h:commandLink>
 								       	</ui:repeat>
 								      </div>
 								      
 								      	<!-- Assentos economicos -->
 								       <div class="btn-group" role="group" aria-label="Second group">
 								       <ui:repeat var="assento" value="#{assentoVooBean.listAssentosEconomicoB}" varStatus="status" >
-								        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-								        		<f:ajax onevent="click" render="nrPoltrona" />
-								        	</h:commandButton>
+								        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+								        		<i class="fa fa-user">#{assento.disponivel}</i>
+								        	</h:commandLink>
 										</ui:repeat>
 								      </div>
 								</div>
@@ -141,18 +148,18 @@
 								      <div class="btn-group btn-group-executive" role="group" aria-label="First group">
 								        <a href="#" class="btn btn-mini btn-classe nohover">C</a>
 								        <ui:repeat var="assento" value="#{assentoVooBean.listAssentosExecutivoC}" varStatus="status">
-								        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-								        		<f:ajax onevent="click" render="nrPoltrona" />
-								        	</h:commandButton>
+								        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+								        		<i class="fa fa-user">#{assento.disponivel}</i>
+								        	</h:commandLink>
 								        </ui:repeat>
 								      </div>
 								      
 								      	<!-- Assentos economicos -->
 								       <div class="btn-group" role="group" aria-label="Second group">
 									       <ui:repeat var="assento" value="#{assentoVooBean.listAssentosEconomicoC}" varStatus="status" >
-									        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-									        		<f:ajax onevent="click" render="nrPoltrona" />
-									        	</h:commandButton>
+									        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+									        		<i class="fa fa-user">#{assento.disponivel}</i>
+									        	</h:commandLink>
 									       </ui:repeat>
 								      </div>
 								</div>
@@ -162,18 +169,18 @@
 								      <div class="btn-group btn-group-executive" role="group" aria-label="First group">
 								        <a href="#" class="btn btn-mini btn-classe nohover">D</a>
 								        <ui:repeat var="assento" value="#{assentoVooBean.listAssentosExecutivoD}" varStatus="status">
-								        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-								        		<f:ajax onevent="click" render="nrPoltrona" />
-								        	</h:commandButton>
+								        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+								        		<i class="fa fa-user">#{assento.disponivel}</i>
+								        	</h:commandLink>
 								        </ui:repeat>
 								      </div>
 								      
 								      	<!-- Assentos economicos -->
 								       <div class="btn-group" role="group" aria-label="Second group">
 								       <ui:repeat var="assento" value="#{assentoVooBean.listAssentosEconomicoD}" varStatus="status">
-								        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-								        		<f:ajax onevent="click" render="nrPoltrona" />
-								        	</h:commandButton>
+								        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+								        		<i class="fa fa-user">#{assento.disponivel}</i>
+								        	</h:commandLink>
 								        </ui:repeat>
 								      </div>
 								</div>
@@ -183,18 +190,18 @@
 								      <div class="btn-group btn-group-executive" role="group" aria-label="First group">
 								        <a href="#" class="btn btn-mini btn-classe nohover">F</a>
 								        <ui:repeat var="assento" value="#{assentoVooBean.listAssentosExecutivoF}" varStatus="status">
-								        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-								        		<f:ajax onevent="click" render="nrPoltrona" />
-								        	</h:commandButton>
+								        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+								        		<i class="fa fa-user">#{assento.disponivel}</i>
+								        	</h:commandLink>
 								        </ui:repeat>
 								      </div>
 								      
 								      	<!-- Assentos economicos -->
 								       <div class="btn-group" role="group" aria-label="Second group">
 								        <ui:repeat var="assento" value="#{assentoVooBean.listAssentosEconomicoF}" varStatus="status">
-								        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-								        		<f:ajax onevent="click" render="nrPoltrona" />
-								        	</h:commandButton>
+								        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+								        		<i class="fa fa-user">#{assento.disponivel}</i>
+								        	</h:commandLink>
 								        </ui:repeat>
 								      </div>
 								</div>
@@ -204,18 +211,18 @@
 								      <div class="btn-group btn-group-executive" role="group" aria-label="First group">
 								        <a href="#" class="btn btn-mini btn-classe nohover">G</a>
 									        <ui:repeat var="assento" value="#{assentoVooBean.listAssentosExecutivoG}" varStatus="status">
-									        	<h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-									        		<f:ajax onevent="click" render="nrPoltrona" />
-									        	</h:commandButton>
+									        	<h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+									        		<i class="fa fa-user">#{assento.disponivel}</i>
+									        	</h:commandLink>
 									        </ui:repeat>
 								      </div>
 								      
 								      	<!-- Assentos economicos -->
 								       <div class="btn-group" role="group" aria-label="Second group">
 								        <ui:repeat var="assento" value="#{assentoVooBean.listAssentosEconomicoG}" varStatus="status">
-									        <h:commandButton styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
-									        	<f:ajax onevent="click" render="nrPoltrona" />
-									        </h:commandButton>
+									        <h:commandLink styleClass="btn btn-default btn-mini fa-user" action="#{confirmaReservaBean.selecionaAssento(assento)}">
+									        	<i class="fa fa-user">#{assento.disponivel}</i>
+									        </h:commandLink>
 									    </ui:repeat>
 								      </div>
 								</div>
@@ -242,7 +249,7 @@
 		          <div class="row no-print">
 		            <div class="col-xs-12">
 		              <a href="#{request.contextPath}/xhtml/public/listaTreechoVoo.xhtml" target="_blank" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Voltar</a>
-		              <h:commandButton action="#{confirmaReservaBean.confirmaReserva()}" value="Confirmar" styleClass="btn btn-success pull-right"><i class="fa fa-check"></i></h:commandButton>
+		              <h:commandLink action="#{confirmaReservaBean.confirmaReserva()}" value="Confirmar" styleClass="btn btn-success pull-right"><i class="fa fa-check"></i></h:commandLink>
 		            </div>
 		          </div>
 		        </section>

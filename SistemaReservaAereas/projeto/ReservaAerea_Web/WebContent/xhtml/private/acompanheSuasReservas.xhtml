@@ -50,17 +50,27 @@
 		                      <th>Origem</th>
 		                      <th>Destino</th>
 		                    </tr>
-		                    <tr>
-		                      <td>183</td>
-		                      <td>John Doe</td>
-		                      <td>A54</td>
-		                      <td>16515</td>
-		                      <td>14/08/2015 18:20</td>
-		                      <td>14/08/2015 19:55</td>
-		                      <td>R$ 280,00</td>
-		                      <td>Aeroporto Guarulhos</td>
-		                      <td>Aeroporto Salvador</td>
-		                    </tr>
+		                     <ui:repeat var="reserva" value="#{acompanhamentoReservaBean.allReservas}" varStatus="status">
+			                    <tr>
+			                      <td>#{reserva.idReserva}</td>
+			                      <td>#{reserva.cliente.nome}</td>
+			                      <td>#{reserva.assento.posicao}#{reserva.assento.nrAssento}</td>
+			                      <td>#{reserva.trecho.voo.nrVoo}</td>
+			                      <td>
+				                      <h:outputText value="#{reserva.trecho.horarioPartida.time}" >
+									              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+									 </h:outputText>
+			                      </td>
+			                      <td>
+			                      	<h:outputText value="#{reserva.trecho.horarioChegada.time}" >
+									              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+									 </h:outputText>
+			                     </td>
+			                      <td>R$ #{reserva.trecho.preco}</td>
+			                      <td>#{reserva.trecho.aeroportoOrigem.localizacao} - #{reserva.trecho.aeroportoOrigem.nome}</td>
+						          <td>#{reserva.trecho.aeroportoDestino.localizacao} - #{reserva.trecho.aeroportoDestino.nome}</td>
+			                    </tr>
+		                   </ui:repeat>
 		                  </tbody></table>
  		                </div><!--/.box-body -->
  		              </div><!--/.box -->

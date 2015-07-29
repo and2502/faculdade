@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="ReservaAerea_EAR">
+    <wb-module deploy-name="ROOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
-        <dependent-module archiveName="ReservaAerea_EJB.jar" deploy-path="/" handle="module:/resource/ReservaAerea_EJB/ReservaAerea_EJB">
-            <dependent-object/>
+        <dependent-module archiveName="ReservaAerea_Web-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/ReservaAerea_Web/ReservaAerea_Web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ReservaAerea_Web.war" deploy-path="/" handle="module:/resource/ReservaAerea_Web/ReservaAerea_Web">
-            <dependent-object/>
+        <dependent-module archiveName="ReservaAerea_EJB-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/ReservaAerea_EJB/ReservaAerea_EJB">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

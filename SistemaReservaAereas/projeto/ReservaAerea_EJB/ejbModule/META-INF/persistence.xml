@@ -2,7 +2,7 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="CLIENT_MYSQL" transaction-type="JTA">	
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>java:jboss/datasources/MysqlDS</jta-data-source>
+		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
 		
 		<class>br.com.reserva.aerea.entity.Aeroporto</class>
 		<class>br.com.reserva.aerea.entity.Assento</class>

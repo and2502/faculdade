@@ -28,6 +28,8 @@ public class Assento implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_CLASSE")
 	private Classe classe;
+	
+	private transient boolean isDisponivel;
 
 	public Assento() {
 	}
@@ -62,6 +64,14 @@ public class Assento implements Serializable {
 
 	public void setClasse(Classe classe) {
 		this.classe = classe;
+	}
+
+	public boolean isDisponivel() {
+		return isDisponivel;
+	}
+
+	public void setDisponivel(boolean isDisponivel) {
+		this.isDisponivel = isDisponivel;
 	}
 
 }
