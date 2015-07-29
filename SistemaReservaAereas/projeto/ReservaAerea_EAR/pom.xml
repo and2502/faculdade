@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>ReservaAerea_EAR</groupId>
+<artifactId>ReservaAerea_EAR</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<packaging>ear</packaging>
+<dependencies>
+<!-- This is the JAR we want to share -->
+<dependency>
+<groupId>ReservaAerea_EJB</groupId>
+<artifactId>ReservaAerea_EJB</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<type>jar</type>
+</dependency>
+<dependency>
+<groupId>ReservaAerea_Web</groupId>
+<artifactId>ReservaAerea_Web</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<type>war</type>
+</dependency>
+</dependencies>
+<build>
+<plugins>
+<plugin>
+<artifactId>maven-ear-plugin</artifactId>
+<version>2.10.1</version>
+<configuration>
+<finalName>ROOT</finalName>
+<earSourceDirectory>EarContent</earSourceDirectory>
+<generateApplicationXml>false</generateApplicationXml>
+<version>6</version>
+<defaultLibBundleDir>lib</defaultLibBundleDir>
+<modules>
+<webModule>
+<groupId>ReservaAerea_Web</groupId>
+<artifactId>ReservaAerea_Web</artifactId>
+<contextRoot>/ReservaAerea</contextRoot>
+</webModule>
+</modules>
+</configuration>
+</plugin>
+</plugins>
+</build>
+</project>
