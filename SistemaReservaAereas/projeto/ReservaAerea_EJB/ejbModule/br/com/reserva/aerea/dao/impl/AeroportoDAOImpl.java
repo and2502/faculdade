@@ -15,6 +15,7 @@ public class AeroportoDAOImpl extends DAOImpl<Aeroporto,Integer> implements Aero
 	@Override
 	public List<Aeroporto> findAll() {
 		TypedQuery<Aeroporto> query = em.createQuery("from Aeroporto", Aeroporto.class);
+		query.setHint("org.hibernate.cacheable","true");
 		return query.getResultList();
 	}
 

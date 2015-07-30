@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 
 /**
  * The persistent class for the AEROPORTO database table.
@@ -16,6 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="AEROPORTO")
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="aeroporto")
 public class Aeroporto implements Serializable {
 	private static final long serialVersionUID = 1L;
 

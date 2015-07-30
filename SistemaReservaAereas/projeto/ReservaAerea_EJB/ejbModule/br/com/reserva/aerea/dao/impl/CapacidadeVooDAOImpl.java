@@ -14,6 +14,7 @@ public class CapacidadeVooDAOImpl extends DAOImpl<CapacidadeVoo,Integer> impleme
 	public CapacidadeVoo findCapacidadeVooExecutivoByIdVoo(Integer id) {
 		TypedQuery<CapacidadeVoo> query = em.createQuery("from CapacidadeVoo c where c.classe.idClasse = 2 and c.voo.idVoo = :idVoo", CapacidadeVoo.class);
 		query.setParameter("idVoo", id);
+		query.setHint("org.hibernate.cacheable","true");
 		return query.getSingleResult();
 	}
 
@@ -21,6 +22,7 @@ public class CapacidadeVooDAOImpl extends DAOImpl<CapacidadeVoo,Integer> impleme
 	public CapacidadeVoo findCapacidadeVooEconomicoByIdVoo(Integer id) {
 		TypedQuery<CapacidadeVoo> query = em.createQuery("from CapacidadeVoo c where c.classe.idClasse = 1 and c.voo.idVoo = :idVoo", CapacidadeVoo.class);
 		query.setParameter("idVoo", id);
+		query.setHint("org.hibernate.cacheable","true");
 		return query.getSingleResult();
 	}
 

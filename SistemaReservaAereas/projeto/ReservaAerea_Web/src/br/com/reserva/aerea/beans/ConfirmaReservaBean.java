@@ -30,8 +30,11 @@ public class ConfirmaReservaBean extends AbstractBean implements Serializable {
 
 	
 	public void selecionaAssento(Assento assento){
-		System.out.println(assento.getPosicao()+"-"+assento.getNrAssento());
-		this.assento = assento;
+		if(assento.isDisponivel()){
+			this.assento = assento;
+		}else{
+			addMessage("msgAlerta", "O Assento "+assento.getPosicao()+assento.getNrAssento()+" já está sendo utilizado");
+		}
 	}
 	
 	public String confirmaReserva(){

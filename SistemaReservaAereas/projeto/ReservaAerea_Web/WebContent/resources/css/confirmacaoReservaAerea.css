@@ -40,10 +40,6 @@
 	width: 164px;
 }
 
-.btn-without-selection{
-	
-}
-
 .btn.nohover:hover {
     /* here copy default .btn class styles */
     cursor:default !important;
@@ -55,4 +51,8 @@
 
 .fa-user:before {
     margin-left: -3px !important;
+}
+
+.nr-poltrona{
+	color:#008D4C
 }

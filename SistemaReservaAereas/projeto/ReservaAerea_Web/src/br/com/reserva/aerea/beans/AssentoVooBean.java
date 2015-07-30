@@ -19,6 +19,10 @@ import br.com.reserva.aerea.entity.CapacidadeVoo;
 @RequestScoped
 public class AssentoVooBean extends AbstractBean implements Serializable {
 
+	private static final int INICIO_NR_ASSENTO_ECONOMICO = 6;
+	private static final int INICIO_NR_ASSENTO_EXECUTIVO = 1;
+	private static final String ECONOMICA = "Economica";
+	private static final String EXECUTIVA = "Executiva";
 	private static final int MAX_ASSENTO_POR_CLASSE_EXECUTIVO = 5;
 	private static final int MAX_ASSENTO_POR_CLASSE_ECONOMICA = 16;
 	@EJB
@@ -47,51 +51,49 @@ public class AssentoVooBean extends AbstractBean implements Serializable {
 		if(reserva.getTrecho() != null){
 			CapacidadeVoo capacidadeVooExecutiva = capacidadeVooDAO.findCapacidadeVooExecutivoByIdVoo(reserva.getTrecho().getVoo().getIdVoo());
 			CapacidadeVoo capacidadeVooEconomica = capacidadeVooDAO.findCapacidadeVooEconomicoByIdVoo(reserva.getTrecho().getVoo().getIdVoo());
-			populaAssentos(capacidadeVooExecutiva.getQtdeAssento(), "Executiva", reserva.getTrecho().getIdTrecho());
-			populaAssentos(capacidadeVooEconomica.getQtdeAssento(), "Economica", reserva.getTrecho().getIdTrecho());
+			populaAssentos(capacidadeVooExecutiva.getQtdeAssento(), EXECUTIVA, reserva.getTrecho().getIdTrecho());
+			populaAssentos(capacidadeVooEconomica.getQtdeAssento(), ECONOMICA, reserva.getTrecho().getIdTrecho());
 		}
 	}
 
 	private void populaAssentos(int qtdeAssento, String tipo, Integer idTrecho) {
 		int count = 0;
-		String[] classes = new String[]{"A","B","C","D","F","G"};
+		String[] posicao = new String[]{"A","B","C","D","F","G"};
 		while (count < 6) {
-			if("Executiva".equalsIgnoreCase(tipo)){
-				qtdeAssento = buildAssentosExecutivoInVoo(qtdeAssento, classes[count], idTrecho);
-			}else if("Economica".equalsIgnoreCase(tipo)){
-				qtdeAssento = buildAssentosEconomicaInVoo(qtdeAssento, classes[count], idTrecho);
+			if(EXECUTIVA.equalsIgnoreCase(tipo)){
+				qtdeAssento = buildAssentosInVoo(qtdeAssento, posicao[count], idTrecho, INICIO_NR_ASSENTO_EXECUTIVO, MAX_ASSENTO_POR_CLASSE_EXECUTIVO, EXECUTIVA);
+			}else if(ECONOMICA.equalsIgnoreCase(tipo)){
+				qtdeAssento = buildAssentosInVoo(qtdeAssento, posicao[count], idTrecho, INICIO_NR_ASSENTO_ECONOMICO, MAX_ASSENTO_POR_CLASSE_ECONOMICA, ECONOMICA);
 			}
 			count++;
 		}
-		
 	}
 
-	private int buildAssentosEconomicaInVoo(int qtdeAssento, String classe, Integer idTrecho) {
-		for(int i = 6; qtdeAssento > 0; i++){
-			Assento assento = assentoDAO.findAssentoByNrAndClasse(i, classe);
-			boolean isDisponivel = assentoDAO.isDisponivel(idTrecho, classe, i);
-			assento.setDisponivel(isDisponivel);
-			getListAssentoVooByClasse(classe, "Economica").add(assento);
+	private int buildAssentosInVoo(int qtdeAssento, String posicao, Integer idTrecho, Integer inicio, Integer maxAssentoByClasse, String classe) {
+		for(int nrAssento = inicio; qtdeAssento > 0; nrAssento++){
+			addAssentoNaLista(classe, posicao, idTrecho, nrAssento);
 			qtdeAssento = qtdeAssento - 1;
-			if(i == MAX_ASSENTO_POR_CLASSE_ECONOMICA){break;}
+			if(nrAssento == maxAssentoByClasse){break;}
 		}
 		return qtdeAssento;
 	}
 
-	private int buildAssentosExecutivoInVoo(int qtdeAssento, String classe, Integer idTrecho) {
-		for(int i = 1; qtdeAssento > 0; i++){
-			Assento assento = assentoDAO.findAssentoByNrAndClasse(i, classe);
-			boolean isDisponivel = assentoDAO.isDisponivel(idTrecho, classe, i);
-			assento.setDisponivel(isDisponivel);
-			getListAssentoVooByClasse(classe, "Executiva").add(assento);
-			qtdeAssento = qtdeAssento - 1;
-			if(i == MAX_ASSENTO_POR_CLASSE_EXECUTIVO){break;}
-		}
-		return qtdeAssento;
+	/**
+	 * Popula na lista especifica os assentos.
+	 * @param posicao - posição do assento[A,B,C,D,F]
+	 * @param classe - Tipo de classe "Executiva" ou "Economica"
+	 * @param idTrecho
+	 * @param nrAssento
+	 */
+	private void addAssentoNaLista(String classe, String posicao, Integer idTrecho, int nrAssento) {
+		Assento assento = assentoDAO.findAssentoByNrAndPosicao(nrAssento, posicao);
+		boolean isDisponivel = assentoDAO.isDisponivel(idTrecho, posicao, nrAssento);
+		assento.setDisponivel(isDisponivel);
+		getListAssentoVooByClasse(posicao, classe).add(assento);
 	}
 	
 	private List<Assento> getListAssentoVooByClasse(String classe, String tipo){
-		if("Executiva".equalsIgnoreCase(tipo)){
+		if(EXECUTIVA.equalsIgnoreCase(tipo)){
 			if("A".equalsIgnoreCase(classe))
 				return this.listAssentosExecutivoA;
 			if("B".equalsIgnoreCase(classe))
@@ -104,7 +106,7 @@ public class AssentoVooBean extends AbstractBean implements Serializable {
 				return this.listAssentosExecutivoF;
 			if("G".equalsIgnoreCase(classe))
 				return this.listAssentosExecutivoG;
-		}else if("Economica".equalsIgnoreCase(tipo)){
+		}else if(ECONOMICA.equalsIgnoreCase(tipo)){
 			if("A".equalsIgnoreCase(classe))
 				return this.listAssentosEconomicoA;
 			if("B".equalsIgnoreCase(classe))
@@ -216,5 +218,4 @@ public class AssentoVooBean extends AbstractBean implements Serializable {
 	public void setListAssentosEconomicoG(List<Assento> listAssentosEconomicoG) {
 		this.listAssentosEconomicoG = listAssentosEconomicoG;
 	}
-
 }
