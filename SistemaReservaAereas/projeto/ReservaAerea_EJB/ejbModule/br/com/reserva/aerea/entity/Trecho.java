@@ -1,7 +1,10 @@
 package br.com.reserva.aerea.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
@@ -102,6 +105,14 @@ public class Trecho implements Serializable {
 
 	public void setVoo(Voo voo) {
 		this.voo = voo;
+	}
+	
+	public String getHorarioPartidaFormatado(){
+		return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(this.horarioPartida.getTime());
+	}
+	
+	public String getHorarioChegadaFormatado(){
+		return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(this.horarioChegada.getTime());
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.com.reserva.aerea.beans;
+package br.com.reserva.aerea.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

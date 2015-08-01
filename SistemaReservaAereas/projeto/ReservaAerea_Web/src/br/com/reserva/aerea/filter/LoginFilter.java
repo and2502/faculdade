@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.reserva.aerea.beans.LoginBean;
+import br.com.reserva.aerea.bean.LoginBean;
 
 @WebFilter(urlPatterns={"/xhtml/private/*"})
 public class LoginFilter implements Filter {

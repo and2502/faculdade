@@ -54,15 +54,12 @@
 						                      <td>#{trecho.voo.nrVoo}</td>
 						                      <td>#{trecho.aeroportoOrigem.localizacao} - #{trecho.aeroportoOrigem.nome}</td>
 						                      <td>#{trecho.aeroportoDestino.localizacao} - #{trecho.aeroportoDestino.nome}</td>
-						                      <td>
-							                      <h:outputText value="#{trecho.horarioPartida.time}" >
-												              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
-												 </h:outputText>
+						                     
+						                      <td> 
+							                      <h:outputText value="#{trecho.horarioPartidaFormatado}" />
 						                      </td>
 						                      <td>
-						                      	<h:outputText value="#{trecho.horarioChegada.time}" >
-												              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
-												 </h:outputText>
+						                      	<h:outputText value="#{trecho.horarioChegadaFormatado}" />
 						                     </td>
 						                      <td>R$ #{trecho.preco}</td>
 						                      <td><h:commandButton value="Comprar" styleClass="btn btn-primary btn-block btn-flat" action="#{reservaBean.addNoCarrino(trecho)}">

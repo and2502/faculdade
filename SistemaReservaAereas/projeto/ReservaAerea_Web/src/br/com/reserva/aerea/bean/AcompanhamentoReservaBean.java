@@ -1,4 +1,4 @@
-package br.com.reserva.aerea.beans;
+package br.com.reserva.aerea.bean;
 
 import java.io.Serializable;
 import java.util.List;
